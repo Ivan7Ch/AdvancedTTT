@@ -20,38 +20,46 @@ class ViewModel {
         initDoubleMatrix()
     }
     
-    private func initDoubleMatrix(){
+    private func initDoubleMatrix() {
         
         let doubleMatrixLength: Int = Int(sqrt(Double(vc.mainSource.count)))
         
         for i in 0..<doubleMatrixLength {
             for j in 0..<doubleMatrixLength {
-                matrixDoble[j][j].color = vc.mainSource[i * doubleMatrixLength + j].color
-                matrixDoble[j][j].power = vc.mainSource[i * doubleMatrixLength + j].power
+                matrixDoble[i][j].color = vc.mainSource[i * doubleMatrixLength + j].color
+                matrixDoble[i][j].power = vc.mainSource[i * doubleMatrixLength + j].power
+                matrixDoble[i][j].side = vc.mainSource[i * doubleMatrixLength + j].side
             }
         }
     }
     
     func check() {
+        initDoubleMatrix()
         
-        for j: Int in 0..<3 {
-            if(matrixDoble[j][0] == matrixDoble[j][1] && matrixDoble[j][1] == matrixDoble[j][2]) {
-                print("\(matrixDoble[j][0]) is won!")
-                
+        for j in 0..<3 {
+            if matrixDoble[j][0].side == .unselected { continue }
+            if matrixDoble[j][0].side == matrixDoble[j][1].side, matrixDoble[j][1].side == matrixDoble[j][2].side {
                 vc.showWinAlert()
-            }
-            
-            if(matrixDoble[0][j] == matrixDoble[1][j] && matrixDoble[1][j] == matrixDoble[2][j]) {
-                print("\(matrixDoble[0][j]) is won!")
+                return
             }
         }
         
-        if(matrixDoble[0][0] == matrixDoble[1][1] && matrixDoble[1][1] == matrixDoble[2][2]) {
-            print("\(matrixDoble[0][0]) is won!")
+        for j in 0..<3 {
+            if matrixDoble[0][j].side == .unselected { continue }
+            if matrixDoble[0][j].side == matrixDoble[1][j].side, matrixDoble[1][j].side == matrixDoble[2][j].side {
+                vc.showWinAlert()
+                return
+            }
         }
         
-        if(matrixDoble[0][2] == matrixDoble[1][1] && matrixDoble[1][1] == matrixDoble[2][0]) {
-            print("\(matrixDoble[0][2]) is won!")
+        if matrixDoble[0][0].side != .unselected, matrixDoble[0][0].side == matrixDoble[1][1].side, matrixDoble[1][1].side == matrixDoble[2][2].side {
+            vc.showWinAlert()
+            return
+        }
+        
+        if matrixDoble[0][2].side != .unselected, matrixDoble[0][2].side == matrixDoble[1][1].side, matrixDoble[1][1].side == matrixDoble[2][0].side {
+            vc.showWinAlert()
+            return
         }
     }
     

@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             self.setupViews()
         }))
 
-//        self.present(alert, animated: true)
+        self.present(alert, animated: true)
     }
 }
 
