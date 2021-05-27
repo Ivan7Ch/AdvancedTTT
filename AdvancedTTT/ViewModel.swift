@@ -12,7 +12,7 @@ class ViewModel {
     
     let vc: ViewController
     
-    private var matrixDoble = Array(repeating: Array(repeating: Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0), count: 3), count: 3)
+    private var matrixDoble = Array(repeating: Array(repeating: Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0, side: .unselected), count: 3), count: 3)
     
     init(vc: ViewController) {
         self.vc = vc

@@ -7,9 +7,16 @@
 
 import UIKit
 
-struct Item {
+enum Side {
+    case blue
+    case red
+    case unselected
+}
+
+struct Item: Equatable {
     var color: UIColor
     var power: Int
+    var side: Side
 }
 
 
@@ -54,7 +61,7 @@ class ViewController: UIViewController {
         redHeightConstraint.constant = height
         blueHeightConstraint.constant = height
         
-        selected = Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0)
+        selected = Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0, side: .unselected)
     }
     
     
@@ -62,10 +69,10 @@ class ViewController: UIViewController {
         mainSource = [Item]()
         redSource = [Item]()
         blueSource = [Item]()
-        mainSource = Array(repeating: Item(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), power: 0), count: 9)
+        mainSource = Array(repeating: Item(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), power: 0, side: .unselected), count: 9)
         for i in 1...6 {
-            let item1 = Item(color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), power: i)
-            let item2 = Item(color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), power: i)
+            let item1 = Item(color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), power: i, side: .red)
+            let item2 = Item(color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), power: i, side: .blue)
             redSource.append(item1)
             blueSource.append(item2)
         }
@@ -88,7 +95,7 @@ class ViewController: UIViewController {
             self.setupViews()
         }))
 
-        self.present(alert, animated: true)
+//        self.present(alert, animated: true)
     }
 }
 
