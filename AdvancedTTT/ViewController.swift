@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var redCollectionView: UICollectionView!
     @IBOutlet weak var blueCollectionView: UICollectionView!
+    @IBOutlet weak var redHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blueHeightConstraint: NSLayoutConstraint!
     
     var mainSource = [Item]()
     var redSource = [Item]()
@@ -25,21 +27,34 @@ class ViewController: UIViewController {
     
     var selected: Item!
     
-    let viewModel: ViewModel!
+    var viewModel: ViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         
+        viewModel = ViewModel(vc: self)
         setupViews()
         
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
+        mainCollectionView.layer.cornerRadius = 10
+        
         redCollectionView.delegate = self
         redCollectionView.dataSource = self
+        redCollectionView.layer.cornerRadius = 10
+        
         blueCollectionView.delegate = self
         blueCollectionView.dataSource = self
+        blueCollectionView.layer.cornerRadius = 10
+        
+        let width = (blueCollectionView.bounds.width - (6 * 5)) / 6
+        let height = (width * 2) + 5
+        redHeightConstraint.constant = height
+        blueHeightConstraint.constant = height
+        
+        selected = Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0)
     }
     
     
@@ -49,8 +64,8 @@ class ViewController: UIViewController {
         blueSource = [Item]()
         mainSource = Array(repeating: Item(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), power: 0), count: 9)
         for i in 1...6 {
-            let item1 = Item(color: #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1), power: i)
-            let item2 = Item(color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), power: i)
+            let item1 = Item(color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), power: i)
+            let item2 = Item(color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), power: i)
             redSource.append(item1)
             blueSource.append(item2)
         }
@@ -67,7 +82,7 @@ class ViewController: UIViewController {
     
     
     func showWinAlert() {
-        let alert = UIAlertController(title: "Blue is winner", message: "Play again?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Do you want play again?", message: "", preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             self.setupViews()
@@ -118,11 +133,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
         case redCollectionView:
             selected = redSource[indexPath.row]
             redSource[indexPath.row].power = 0
-            redSource[indexPath.row].color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            redSource[indexPath.row].color = #colorLiteral(red: 0.2941176471, green: 0.3137254902, blue: 0.3411764706, alpha: 1)
         case blueCollectionView:
             selected = blueSource[indexPath.row]
             blueSource[indexPath.row].power = 0
-            blueSource[indexPath.row].color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            blueSource[indexPath.row].color = #colorLiteral(red: 0.2941176471, green: 0.3137254902, blue: 0.3411764706, alpha: 1)
         default:
             break
         }
@@ -134,11 +149,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
         
         let collectionViewWidth = collectionView.bounds.width
         if collectionView == mainCollectionView {
-            let cellWidth = (collectionViewWidth / 3) - 10
+            let cellWidth = (collectionViewWidth / 3) - 1
             return CGSize(width: cellWidth, height: cellWidth)
         }
-        let cellWidth = (collectionViewWidth / 6) - 10
-        return CGSize(width: cellWidth, height: cellWidth)
+        let cellWidth = (collectionViewWidth / 3) - 2
+        return CGSize(width: cellWidth, height: cellWidth / 2)
     }
 }
 
