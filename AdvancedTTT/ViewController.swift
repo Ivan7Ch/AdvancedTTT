@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Pastel
 
 enum Side {
     case blue
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
     var selected: Item!
     
     var viewModel: ViewModel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,12 +57,15 @@ class ViewController: UIViewController {
         blueCollectionView.dataSource = self
         blueCollectionView.layer.cornerRadius = 10
         
-        let width = (blueCollectionView.bounds.width - (6 * 5)) / 6
-        let height = (width * 2) + 5
+        view.layoutIfNeeded()
+        
+        let height = (blueCollectionView.bounds.width - (2 * 2)) / 3
         redHeightConstraint.constant = height
         blueHeightConstraint.constant = height
         
         selected = Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0, side: .unselected)
+        
+        addBackground()
     }
     
     
@@ -90,12 +94,30 @@ class ViewController: UIViewController {
     
     func showWinAlert() {
         let alert = UIAlertController(title: "Do you want play again?", message: "", preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             self.setupViews()
         }))
-
+        
         self.present(alert, animated: true)
+    }
+    
+    private func addBackground() {
+        let pastelView = PastelView(frame: view.bounds)
+        
+        pastelView.startPastelPoint = .top
+        pastelView.endPastelPoint = .bottom
+        pastelView.animationDuration = 7.0
+        
+        var colors = [#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 0.8904744485, green: 0.8502347224, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 0.6813562978, green: 0.8039215803, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.6451833526, alpha: 1)]
+        
+        if self.traitCollection.userInterfaceStyle == .dark {
+            colors = [#colorLiteral(red: 0.2352941176, green: 0.2549019608, blue: 0.2823529412, alpha: 1), #colorLiteral(red: 0.1058823529, green: 0.1490196078, blue: 0.1725490196, alpha: 1), #colorLiteral(red: 0.05882352941, green: 0.2980392157, blue: 0.4588235294, alpha: 1)]
+        }
+        
+        pastelView.setColors(colors)
+        pastelView.startAnimation()
+        view.insertSubview(pastelView, at: 0)
     }
 }
 
@@ -159,7 +181,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
             let cellWidth = (collectionViewWidth / 3) - 1
             return CGSize(width: cellWidth, height: cellWidth)
         }
-        let cellWidth = (collectionViewWidth / 3) - 2
+        let cellWidth = (collectionViewWidth - 4) / 3
         return CGSize(width: cellWidth, height: cellWidth / 2)
     }
 }

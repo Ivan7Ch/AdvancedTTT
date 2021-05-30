@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E4912A4C20A41AC23D6C132 /* Pods_AdvancedTTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD71D6FC7FDCA5F05E085FB /* Pods_AdvancedTTT.framework */; };
 		5C1F593D2658D1A200041373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F593C2658D1A200041373 /* AppDelegate.swift */; };
 		5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F593E2658D1A200041373 /* SceneDelegate.swift */; };
 		5C1F59412658D1A200041373 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F59402658D1A200041373 /* ViewController.swift */; };
@@ -28,6 +29,9 @@
 		5C1F594B2658D1A300041373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C1F594D2658D1A300041373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C4A8EFC26601E4F00986A94 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		AD7CD2E3915A17301EDAA812 /* Pods-AdvancedTTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.release.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.release.xcconfig"; sourceTree = "<group>"; };
+		AFD71D6FC7FDCA5F05E085FB /* Pods_AdvancedTTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdvancedTTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4912A4C20A41AC23D6C132 /* Pods_AdvancedTTT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				5C1F593B2658D1A200041373 /* AdvancedTTT */,
 				5C1F593A2658D1A200041373 /* Products */,
+				B2304A89C001D464184A80FB /* Pods */,
+				5DB8D50C0C546D0B98DC7D86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,24 @@
 			path = AdvancedTTT;
 			sourceTree = "<group>";
 		};
+		5DB8D50C0C546D0B98DC7D86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFD71D6FC7FDCA5F05E085FB /* Pods_AdvancedTTT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2304A89C001D464184A80FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */,
+				AD7CD2E3915A17301EDAA812 /* Pods-AdvancedTTT.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C1F59502658D1A300041373 /* Build configuration list for PBXNativeTarget "AdvancedTTT" */;
 			buildPhases = (
+				D61743133F003EEC4CB93077 /* [CP] Check Pods Manifest.lock */,
 				5C1F59352658D1A200041373 /* Sources */,
 				5C1F59362658D1A200041373 /* Frameworks */,
 				5C1F59372658D1A200041373 /* Resources */,
+				5D99A7F865D4ECF9B66756F9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +164,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D99A7F865D4ECF9B66756F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D61743133F003EEC4CB93077 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdvancedTTT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5C1F59352658D1A200041373 /* Sources */ = {
@@ -291,6 +360,7 @@
 		};
 		5C1F59512658D1A300041373 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		5C1F59522658D1A300041373 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD7CD2E3915A17301EDAA812 /* Pods-AdvancedTTT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
