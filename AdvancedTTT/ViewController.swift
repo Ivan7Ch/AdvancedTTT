@@ -50,6 +50,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var redHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var blueHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet var roundedViews: [UIView]!
+    @IBOutlet var shadowViews: [UIView]!
+    
     var mainSource = [Item]()
     var redSource = [Item]()
     var blueSource = [Item]()
@@ -79,9 +82,21 @@ class ViewController: UIViewController {
         blueCollectionView.dataSource = self
         blueCollectionView.layer.cornerRadius = 10
         
+        for i in roundedViews {
+            i.layer.cornerRadius = 12
+            i.layer.masksToBounds = true
+        }
+        
+        for i in shadowViews {
+            i.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            i.layer.shadowOpacity = 0.4
+            i.layer.shadowOffset = CGSize(width: 5, height: 12)
+            i.layer.shadowRadius = 20
+        }
+        
         view.layoutIfNeeded()
         
-        let height = (blueCollectionView.bounds.width - (2 * 2)) / 3
+        let height = (blueCollectionView.bounds.width - 2) / 3
         redHeightConstraint.constant = height
         blueHeightConstraint.constant = height
         
@@ -134,9 +149,10 @@ class ViewController: UIViewController {
         
         var colors = [#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 0.8904744485, green: 0.8502347224, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 0.6813562978, green: 0.8039215803, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.6451833526, alpha: 1)]
         
-        if self.traitCollection.userInterfaceStyle == .dark {
+//        if self.traitCollection.userInterfaceStyle == .dark {
             colors = [#colorLiteral(red: 0.2352941176, green: 0.2549019608, blue: 0.2823529412, alpha: 1), #colorLiteral(red: 0.1058823529, green: 0.1490196078, blue: 0.1725490196, alpha: 1), #colorLiteral(red: 0.05882352941, green: 0.2980392157, blue: 0.4588235294, alpha: 1)]
-        }
+//        }
+        colors = [#colorLiteral(red: 1, green: 0.1058823529, blue: 0.4196078431, alpha: 0.75), #colorLiteral(red: 0.2705882353, green: 0.7921568627, blue: 1, alpha: 0.75)]
         
         pastelView.setColors(colors)
         pastelView.startAnimation()
@@ -254,7 +270,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
             let cellWidth = (collectionViewWidth / 3) - 1
             return CGSize(width: cellWidth, height: cellWidth)
         }
-        let cellWidth = (collectionViewWidth - 4) / 3
+        let cellWidth = (collectionViewWidth - 2) / 3
         return CGSize(width: cellWidth, height: cellWidth / 2)
     }
 }
