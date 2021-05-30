@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     var selected: Item?
     
     var viewModel: ViewModel!
+    var blueMove = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +116,7 @@ class ViewController: UIViewController {
     
     
     func showWinAlert() {
-        let alert = UIAlertController(title: "Do you want play again?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Do you want to play again?", message: "", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             self.setupViews()
@@ -220,7 +221,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
             mainSource[indexPath.row].side = selected.side
             self.selected = nil
             removeSelections()
+            blueMove.toggle()
         case redCollectionView:
+            if blueMove { break }
             deselectAll()
             if selected == redSource[indexPath.row] {
                 selected = nil
@@ -229,6 +232,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
                 selected!.isSelected = true
             }
         case blueCollectionView:
+            if !blueMove { break }
             deselectAll()
             if selected == blueSource[indexPath.row] {
                 selected = nil

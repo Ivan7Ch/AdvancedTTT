@@ -65,11 +65,4 @@ class ViewModel {
             return
         }
     }
-    
-    func isAllowedMoveForBlue() -> Bool {
-        
-        
-        return true
-    }
-    
 }
