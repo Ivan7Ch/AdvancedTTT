@@ -11,13 +11,34 @@ import Pastel
 enum Side {
     case blue
     case red
-    case unselected
+    case unknown
 }
 
-struct Item: Equatable {
-    var color: UIColor
+class Item: Equatable {
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.power == rhs.power && lhs.color == rhs.color && lhs.side == rhs.side
+    }
+    
+    var color: UIColor {
+        switch side {
+        case .blue:
+            return isSelected ? #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1) : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        case .red:
+            return isSelected ? #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1) : #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        case .unknown:
+            return isRemoved ? #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+    }
+    
     var power: Int
     var side: Side
+    var isSelected = false
+    var isRemoved = false
+    
+    init(power: Int, side: Side) {
+        self.power = power
+        self.side = side
+    }
 }
 
 
@@ -33,7 +54,7 @@ class ViewController: UIViewController {
     var redSource = [Item]()
     var blueSource = [Item]()
     
-    var selected: Item!
+    var selected: Item?
     
     var viewModel: ViewModel!
     
@@ -63,8 +84,6 @@ class ViewController: UIViewController {
         redHeightConstraint.constant = height
         blueHeightConstraint.constant = height
         
-        selected = Item(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), power: 0, side: .unselected)
-        
         addBackground()
     }
     
@@ -73,10 +92,13 @@ class ViewController: UIViewController {
         mainSource = [Item]()
         redSource = [Item]()
         blueSource = [Item]()
-        mainSource = Array(repeating: Item(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), power: 0, side: .unselected), count: 9)
+        
+        for _ in 0..<9 {
+            mainSource.append(Item(power: 0, side: .unknown))
+        }
         for i in 1...6 {
-            let item1 = Item(color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), power: i, side: .red)
-            let item2 = Item(color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), power: i, side: .blue)
+            let item1 = Item(power: i, side: .red)
+            let item2 = Item(power: i, side: .blue)
             redSource.append(item1)
             blueSource.append(item2)
         }
@@ -119,6 +141,41 @@ class ViewController: UIViewController {
         pastelView.startAnimation()
         view.insertSubview(pastelView, at: 0)
     }
+    
+    private func removeSelections() {
+        for i in blueSource {
+            if i.isSelected {
+                i.isSelected = false
+                i.isRemoved = true
+                i.side = .unknown
+                i.power = 0
+            }
+        }
+        
+        for i in redSource {
+            if i.isSelected {
+                i.isSelected = false
+                i.isRemoved = true
+                i.side = .unknown
+                i.power = 0
+            }
+        }
+    }
+    
+    private func deselectAll() {
+        for i in blueSource {
+            if i.isSelected {
+                i.isSelected = false
+                i.isSelected = false
+            }
+        }
+        
+        for i in redSource {
+            if i.isSelected {
+                i.isSelected = false
+            }
+        }
+    }
 }
 
 
@@ -155,18 +212,30 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case mainCollectionView:
+            guard let selected = selected else { return }
+            
             if selected.power == 0 { return }
             if selected.power <= mainSource[indexPath.row].power { return }
-            mainSource[indexPath.row] = selected
-            selected.power = 0
+            mainSource[indexPath.row].power = selected.power
+            mainSource[indexPath.row].side = selected.side
+            self.selected = nil
+            removeSelections()
         case redCollectionView:
-            selected = redSource[indexPath.row]
-            redSource[indexPath.row].power = 0
-            redSource[indexPath.row].color = #colorLiteral(red: 0.2941176471, green: 0.3137254902, blue: 0.3411764706, alpha: 1)
+            deselectAll()
+            if selected == redSource[indexPath.row] {
+                selected = nil
+            } else if selected != redSource[indexPath.row] {
+                selected = redSource[indexPath.row]
+                selected!.isSelected = true
+            }
         case blueCollectionView:
-            selected = blueSource[indexPath.row]
-            blueSource[indexPath.row].power = 0
-            blueSource[indexPath.row].color = #colorLiteral(red: 0.2941176471, green: 0.3137254902, blue: 0.3411764706, alpha: 1)
+            deselectAll()
+            if selected == blueSource[indexPath.row] {
+                selected = nil
+            } else if selected != blueSource[indexPath.row] {
+                selected = blueSource[indexPath.row]
+                selected!.isSelected = true
+            }
         default:
             break
         }
