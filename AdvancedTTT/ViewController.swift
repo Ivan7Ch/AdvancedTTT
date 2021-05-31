@@ -270,7 +270,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
             let cellWidth = (collectionViewWidth / 3) - 1
             return CGSize(width: cellWidth, height: cellWidth)
         }
-        let cellWidth = (collectionViewWidth - 2) / 3
+        let cellWidth = (collectionViewWidth - 3) / 3
         return CGSize(width: cellWidth, height: cellWidth / 2)
     }
 }
