@@ -218,8 +218,10 @@ extension ViewController: UICollectionViewDataSource {
         default:
             break
         }
-        cell.lab.text = "\(item.power)"
+        cell.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.lab.text = ""
         cell.backgroundColor = item.color
+        cell.diceIcon.image = UIImage(named: "\(item.power)")
         return cell
     }
 }
@@ -278,4 +280,5 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
 
 class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lab: UILabel!
+    @IBOutlet weak var diceIcon: UIImageView!
 }
