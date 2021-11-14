@@ -10,13 +10,13 @@ import Foundation
 
 class ViewModel {
     
-    let vc: ViewController
+    let vc: GameViewController
     
     private var matrix = [[Item]]()
     private let sideLenght = 3
     
     
-    init(vc: ViewController) {
+    init(vc: GameViewController) {
         self.vc = vc
     }
     

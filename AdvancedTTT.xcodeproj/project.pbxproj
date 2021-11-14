@@ -10,7 +10,7 @@
 		4E4912A4C20A41AC23D6C132 /* Pods_AdvancedTTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD71D6FC7FDCA5F05E085FB /* Pods_AdvancedTTT.framework */; };
 		5C1F593D2658D1A200041373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F593C2658D1A200041373 /* AppDelegate.swift */; };
 		5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F593E2658D1A200041373 /* SceneDelegate.swift */; };
-		5C1F59412658D1A200041373 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F59402658D1A200041373 /* ViewController.swift */; };
+		5C1F59412658D1A200041373 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F59402658D1A200041373 /* GameViewController.swift */; };
 		5C1F59442658D1A200041373 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1F59422658D1A200041373 /* Main.storyboard */; };
 		5C1F59472658D1A200041373 /* AdvancedTTT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F59452658D1A200041373 /* AdvancedTTT.xcdatamodeld */; };
 		5C1F59492658D1A300041373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C1F59482658D1A300041373 /* Assets.xcassets */; };
@@ -22,7 +22,7 @@
 		5C1F59392658D1A200041373 /* AdvancedTTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedTTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1F593C2658D1A200041373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1F593E2658D1A200041373 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C1F59402658D1A200041373 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C1F59402658D1A200041373 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5C1F59432658D1A200041373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C1F59462658D1A200041373 /* AdvancedTTT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdvancedTTT.xcdatamodel; sourceTree = "<group>"; };
 		5C1F59482658D1A300041373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			children = (
 				5C1F593C2658D1A200041373 /* AppDelegate.swift */,
 				5C1F593E2658D1A200041373 /* SceneDelegate.swift */,
-				5C1F59402658D1A200041373 /* ViewController.swift */,
+				5C1F59402658D1A200041373 /* GameViewController.swift */,
 				5C1F59422658D1A200041373 /* Main.storyboard */,
 				5C1F59482658D1A300041373 /* Assets.xcassets */,
 				5C1F594A2658D1A300041373 /* LaunchScreen.storyboard */,
@@ -212,7 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C4A8EFD26601E4F00986A94 /* ViewModel.swift in Sources */,
-				5C1F59412658D1A200041373 /* ViewController.swift in Sources */,
+				5C1F59412658D1A200041373 /* GameViewController.swift in Sources */,
 				5C1F593D2658D1A200041373 /* AppDelegate.swift in Sources */,
 				5C1F59472658D1A200041373 /* AdvancedTTT.xcdatamodeld in Sources */,
 				5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */,
