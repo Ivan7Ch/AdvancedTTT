@@ -27,19 +27,12 @@ class GameViewController: UIViewController {
     @IBOutlet var roundedViews: [UIView]!
     @IBOutlet var shadowViews: [UIView]!
     
-    
-    
-    var selected: Item?
-    
     var viewModel: GameViewModel!
-    
-    var blueMove = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = GameViewModel(vc: self)
-        setupViews()
         
         setupCollectionViews()
         
@@ -79,11 +72,6 @@ class GameViewController: UIViewController {
         blueCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
     }
     
-    private func setupViews() {
-        reloadViews()
-    }
-    
-    
     func reloadViews() {
         mainCollectionView.reloadData()
         redCollectionView.reloadData()
@@ -96,7 +84,7 @@ class GameViewController: UIViewController {
         let alert = UIAlertController(title: "Do you want to play again?", message: "", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
-            self.setupViews()
+            self.viewModel.reloadGame()
         }))
         
         self.present(alert, animated: true)
@@ -134,7 +122,6 @@ extension GameViewController: UICollectionViewDataSource {
         let item = viewModel.getItemFor(indexPath, in: type)
             
         cell.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.lab.text = ""
         cell.backgroundColor =  item.color
         cell.diceIcon.image = UIImage(named: "\(item.power)")
         return cell
@@ -145,39 +132,8 @@ extension GameViewController: UICollectionViewDataSource {
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case mainCollectionView:
-            guard let selected = selected else { return }
-            
-            if selected.power == 0 { return }
-            if selected.power <= viewModel.gameData.mainSource[indexPath.row].power { return }
-            viewModel.gameData.mainSource[indexPath.row].power = selected.power
-            viewModel.gameData.mainSource[indexPath.row].side = selected.side
-            self.selected = nil
-            viewModel.removeSelections()
-            blueMove.toggle()
-        case redCollectionView:
-            if blueMove { break }
-            viewModel.gameData.deselectAll()
-            if selected == viewModel.gameData.redSource[indexPath.row] {
-                selected = nil
-            } else if selected != viewModel.gameData.redSource[indexPath.row] {
-                selected = viewModel.gameData.redSource[indexPath.row]
-                selected!.isSelected = true
-            }
-        case blueCollectionView:
-            if !blueMove { break }
-            viewModel.gameData.deselectAll()
-            if selected == viewModel.gameData.blueSource[indexPath.row] {
-                selected = nil
-            } else if selected != viewModel.gameData.blueSource[indexPath.row] {
-                selected = viewModel.gameData.blueSource[indexPath.row]
-                selected!.isSelected = true
-            }
-        default:
-            break
-        }
-        reloadViews()
+        let type = getTypeOf(collectionView: collectionView)
+        viewModel.didTapAt(indexPath, for: type)
     }
     
     

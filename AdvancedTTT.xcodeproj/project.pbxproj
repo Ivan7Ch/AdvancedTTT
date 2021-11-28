@@ -79,6 +79,7 @@
 		5C1F593B2658D1A200041373 /* AdvancedTTT */ = {
 			isa = PBXGroup;
 			children = (
+				CE1439802753FF740014D068 /* Cells */,
 				CE1439792753F26F0014D068 /* Extensions */,
 				CE1439702753F0B90014D068 /* Models */,
 				CE14396F2753F0A80014D068 /* MainFieldScreen */,
@@ -113,7 +114,6 @@
 		CE14396F2753F0A80014D068 /* MainFieldScreen */ = {
 			isa = PBXGroup;
 			children = (
-				CE1439752753F10A0014D068 /* MainCollectionViewCell.swift */,
 				5C1F59402658D1A200041373 /* GameViewController.swift */,
 				CE1439772753F1320014D068 /* GameModelView.swift */,
 				CE14397C2753F9C00014D068 /* GameData.swift */,
@@ -137,6 +137,14 @@
 				CE14397A2753F2810014D068 /* UIViewController+Background.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE1439802753FF740014D068 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE1439752753F10A0014D068 /* MainCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

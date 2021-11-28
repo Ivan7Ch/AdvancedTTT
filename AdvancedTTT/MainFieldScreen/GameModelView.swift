@@ -12,6 +12,9 @@ class GameViewModel {
     let vc: GameViewController
     let gameData: GameData
     
+    var blueMove = true
+    var selected: Item?
+    
     private var matrix = [[Item]]()
     private let sideLenght = 3
     
@@ -84,6 +87,47 @@ extension GameViewModel {
             return gameData.blueSource[indexPath.row]
         case .red:
             return gameData.redSource[indexPath.row]
+        }
+    }
+    
+    func reloadGame() {
+        gameData.setupArrays()
+        vc.reloadViews()
+    }
+    
+    func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
+        switch type {
+        case .main:
+            didTapOnMainSource(at: indexPath)
+        case .red:
+            if blueMove { break }
+            didTapOnSecondary(source: gameData.redSource, at: indexPath)
+        case .blue:
+            if !blueMove { break }
+            didTapOnSecondary(source: gameData.blueSource, at: indexPath)
+        }
+        
+        vc.reloadViews()
+    }
+    
+    private func didTapOnMainSource(at indexPath: IndexPath) {
+        guard let selected = selected else { return }
+        if selected.power == 0 { return }
+        if selected.power <= gameData.mainSource[indexPath.row].power { return }
+        gameData.mainSource[indexPath.row].power = selected.power
+        gameData.mainSource[indexPath.row].side = selected.side
+        self.selected = nil
+        removeSelections()
+        blueMove.toggle()
+    }
+    
+    private func didTapOnSecondary(source: [Item], at indexPath: IndexPath) {
+        gameData.deselectAll()
+        if selected == source[indexPath.row] {
+            selected = nil
+        } else if selected != source[indexPath.row] {
+            selected = source[indexPath.row]
+            selected!.isSelected = true
         }
     }
 }
