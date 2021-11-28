@@ -80,10 +80,10 @@ class GameViewController: UIViewController {
     }
     
     
-    func showWinAlert() {
-        let alert = UIAlertController(title: "Do you want to play again?", message: "", preferredStyle: .alert)
+    func showWinAlert(with title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { _ in
             self.viewModel.reloadGame()
         }))
         

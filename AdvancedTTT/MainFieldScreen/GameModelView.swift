@@ -36,17 +36,28 @@ class GameViewModel {
         }
     }
     
+    private func winMessage(for side: Side) -> String {
+        switch side {
+        case .blue:
+            return "Blue is winner"
+        case .red:
+            return "Red is winner"
+        default:
+            return ""
+        }
+    }
+    
     func check() {
         setupMatrix()
         if gameData.redSource.filter({ $0.side == .unknown }).count == 6 && gameData.blueSource.filter({ $0.side == .unknown }).count == 6 {
-            vc.showWinAlert()
+            vc.showWinAlert(with: "Draw")
             return
         }
         
         for j in 0..<3 {
             if matrix[j][0].side == .unknown { continue }
             if matrix[j][0].side == matrix[j][1].side, matrix[j][1].side == matrix[j][2].side {
-                vc.showWinAlert()
+                vc.showWinAlert(with: winMessage(for: matrix[j][0].side))
                 return
             }
         }
@@ -54,18 +65,18 @@ class GameViewModel {
         for j in 0..<3 {
             if matrix[0][j].side == .unknown { continue }
             if matrix[0][j].side == matrix[1][j].side, matrix[1][j].side == matrix[2][j].side {
-                vc.showWinAlert()
+                vc.showWinAlert(with: winMessage(for: matrix[0][j].side))
                 return
             }
         }
         
         if matrix[0][0].side != .unknown, matrix[0][0].side == matrix[1][1].side, matrix[1][1].side == matrix[2][2].side {
-            vc.showWinAlert()
+            vc.showWinAlert(with: winMessage(for: matrix[0][0].side))
             return
         }
         
         if matrix[0][2].side != .unknown, matrix[0][2].side == matrix[1][1].side, matrix[1][1].side == matrix[2][0].side {
-            vc.showWinAlert()
+            vc.showWinAlert(with: winMessage(for: matrix[0][2].side))
             return
         }
     }
