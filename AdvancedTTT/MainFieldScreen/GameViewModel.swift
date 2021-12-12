@@ -127,10 +127,10 @@ extension GameViewModel {
             break
         case .red:
             if blueMove { break }
-            didTapOnSecondary(source: gameData.redSource, at: indexPath)
+            didTapToDragOnSecondary(source: gameData.redSource, at: indexPath)
         case .blue:
             if !blueMove { break }
-            didTapOnSecondary(source: gameData.blueSource, at: indexPath)
+            didTapToDragOnSecondary(source: gameData.blueSource, at: indexPath)
         }
     }
     
@@ -157,6 +157,14 @@ extension GameViewModel {
         if selected == source[indexPath.row] {
             selected = nil
         } else if selected != source[indexPath.row] {
+            selected = source[indexPath.row]
+            selected!.isSelected = true
+        }
+    }
+    
+    private func didTapToDragOnSecondary(source: [Item], at indexPath: IndexPath) {
+        gameData.deselectAll()
+        if selected != source[indexPath.row] {
             selected = source[indexPath.row]
             selected!.isSelected = true
         }
