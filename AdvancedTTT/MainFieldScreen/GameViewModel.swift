@@ -134,6 +134,13 @@ extension GameViewModel {
         }
     }
     
+    func canDropItem(at indexPath: IndexPath, on boardType: BoardType) -> Bool {
+        if boardType != .main, (selected?.power ?? -1) <= gameData.mainSource[indexPath.row].power {
+            return false
+        }
+        return true
+    }
+    
     private func didTapOnMainSource(at indexPath: IndexPath) {
         guard let selected = selected else { return }
         if selected.power == 0 { return }

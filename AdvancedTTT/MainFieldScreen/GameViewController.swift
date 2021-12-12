@@ -116,7 +116,7 @@ class GameViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    private func getTypeOf(collectionView: UICollectionView) -> BoardType {
+    private func getTypeOf(_ collectionView: UICollectionView) -> BoardType {
         
         switch collectionView {
         case redCollectionView:
@@ -144,7 +144,7 @@ extension GameViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
         cell.lab.text = ""
        
-        let type = getTypeOf(collectionView: collectionView)
+        let type = getTypeOf(collectionView)
         let item = viewModel.getItemFor(indexPath, in: type)
             
         cell.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -158,7 +158,7 @@ extension GameViewController: UICollectionViewDataSource {
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let type = getTypeOf(collectionView: collectionView)
+        let type = getTypeOf(collectionView)
         viewModel.didTapAt(indexPath, for: type)
     }
     
@@ -182,7 +182,7 @@ extension GameViewController : UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         if collectionView == mainCollectionView { return [] }
         
-        viewModel.didTapToDrag(at: indexPath, for: getTypeOf(collectionView: collectionView))
+        viewModel.didTapToDrag(at: indexPath, for: getTypeOf(collectionView))
         
         let item = ""
         let itemProvider = NSItemProvider(object: item as NSString)
@@ -209,15 +209,11 @@ extension GameViewController : UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         
-        let collectionViewType = getTypeOf(collectionView: collectionView)
-        switch collectionViewType {
-        case .main:
-            return UICollectionViewDropProposal(operation: .copy, intent: .insertIntoDestinationIndexPath)
-        case .red:
-            return UICollectionViewDropProposal(operation: .forbidden)
-        case .blue:
-            return UICollectionViewDropProposal(operation: .forbidden)
+        if let indexPath = destinationIndexPath,
+           viewModel.canDropItem(at: indexPath, on: getTypeOf(collectionView)) {
+            return UICollectionViewDropProposal(operation: .move, intent: .insertIntoDestinationIndexPath)
         }
+        return UICollectionViewDropProposal(operation: .forbidden)
     }
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
@@ -232,7 +228,7 @@ extension GameViewController : UICollectionViewDropDelegate {
         }
         
         switch coordinator.proposal.operation {
-        case .copy:
+        case .move:
             viewModel.didTapAt(destinationIndexPath, for: .main)
         default:
             return
