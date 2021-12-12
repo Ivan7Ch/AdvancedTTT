@@ -162,7 +162,6 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDelegate
         viewModel.didTapAt(indexPath, for: type)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let collectionViewWidth = collectionView.bounds.width

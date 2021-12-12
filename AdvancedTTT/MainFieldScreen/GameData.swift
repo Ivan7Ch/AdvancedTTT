@@ -68,4 +68,14 @@ class GameData {
             }
         }
     }
+    
+    func canPerformMove(for array: [Item]) -> Bool {
+        for item in array {
+            if mainSource.contains(where: { item.power > $0.power }) {
+                return true
+            }
+        }
+        
+        return false
+    }
 }

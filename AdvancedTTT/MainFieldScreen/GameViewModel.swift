@@ -12,7 +12,7 @@ class GameViewModel {
     let vc: GameViewController
     let gameData: GameData
     
-    var blueMove = true
+    var isBlueMove = true
     var selected: Item?
     
     private var matrix = [[Item]]()
@@ -49,10 +49,6 @@ class GameViewModel {
     
     func check() {
         setupMatrix()
-        if gameData.redSource.filter({ $0.side == .unknown }).count == 6 && gameData.blueSource.filter({ $0.side == .unknown }).count == 6 {
-            vc.showWinAlert(with: "Draw")
-            return
-        }
         
         for j in 0..<3 {
             if matrix[j][0].side == .unknown { continue }
@@ -78,6 +74,23 @@ class GameViewModel {
         if matrix[0][2].side != .unknown, matrix[0][2].side == matrix[1][1].side, matrix[1][1].side == matrix[2][0].side {
             vc.showWinAlert(with: winMessage(for: matrix[0][2].side))
             return
+        }
+        
+        if isDraw() {
+            vc.showWinAlert(with: "Draw")
+            return
+        }
+    }
+    
+    private func isDraw() -> Bool {
+        if gameData.redSource.filter({ $0.side == .unknown }).count == 6 && gameData.blueSource.filter({ $0.side == .unknown }).count == 6 {
+            return true
+        }
+        
+        if isBlueMove {
+            return !gameData.canPerformMove(for: gameData.blueSource)
+        } else {
+            return !gameData.canPerformMove(for: gameData.redSource)
         }
     }
 }
@@ -111,10 +124,10 @@ extension GameViewModel {
         case .main:
             didTapOnMainSource(at: indexPath)
         case .red:
-            if blueMove { break }
+            if isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)
         case .blue:
-            if !blueMove { break }
+            if !isBlueMove { break }
             didTapOnSecondary(source: gameData.blueSource, at: indexPath)
         }
         
@@ -126,10 +139,10 @@ extension GameViewModel {
         case .main:
             break
         case .red:
-            if blueMove { break }
+            if isBlueMove { break }
             didTapToDragOnSecondary(source: gameData.redSource, at: indexPath)
         case .blue:
-            if !blueMove { break }
+            if !isBlueMove { break }
             didTapToDragOnSecondary(source: gameData.blueSource, at: indexPath)
         }
     }
@@ -149,7 +162,7 @@ extension GameViewModel {
         gameData.mainSource[indexPath.row].side = selected.side
         self.selected = nil
         removeSelections()
-        blueMove.toggle()
+        isBlueMove.toggle()
     }
     
     private func didTapOnSecondary(source: [Item], at indexPath: IndexPath) {
