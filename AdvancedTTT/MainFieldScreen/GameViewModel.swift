@@ -1,5 +1,5 @@
 //
-//  GameModelView.swift
+//  GameViewModel.swift
 //  AdvancedTTT
 //
 //  Created by User on 28.11.2021.
@@ -119,6 +119,19 @@ extension GameViewModel {
         }
         
         vc.reloadViews()
+    }
+    
+    func didTapToDrag(at indexPath: IndexPath, for type: BoardType) {
+        switch type {
+        case .main:
+            break
+        case .red:
+            if blueMove { break }
+            didTapOnSecondary(source: gameData.redSource, at: indexPath)
+        case .blue:
+            if !blueMove { break }
+            didTapOnSecondary(source: gameData.blueSource, at: indexPath)
+        }
     }
     
     private func didTapOnMainSource(at indexPath: IndexPath) {
