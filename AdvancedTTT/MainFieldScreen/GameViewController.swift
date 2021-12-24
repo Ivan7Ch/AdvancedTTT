@@ -72,6 +72,7 @@ class GameViewController: UIViewController {
         redCollectionView.delegate = self
         redCollectionView.dataSource = self
         redCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        redCollectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         redCollectionView.dragInteractionEnabled = true
         redCollectionView.dragDelegate = self
@@ -81,6 +82,7 @@ class GameViewController: UIViewController {
         blueCollectionView.delegate = self
         blueCollectionView.dataSource = self
         blueCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        blueCollectionView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         blueCollectionView.dragInteractionEnabled = true
         blueCollectionView.dragDelegate = self
@@ -88,6 +90,8 @@ class GameViewController: UIViewController {
         
         changeMinimumPressDuration(for: blueCollectionView, 0.1)
         changeMinimumPressDuration(for: redCollectionView, 0.1)
+        
+        setCollectionViewDisabled(.red)
     }
     
     private func changeMinimumPressDuration(for collectionView: UICollectionView, _ duration: TimeInterval) {
@@ -114,6 +118,18 @@ class GameViewController: UIViewController {
         }))
         
         self.present(alert, animated: true)
+    }
+    
+    func setCollectionViewDisabled(_ boardType: BoardType) {
+        setCollectionViewDisabled(redCollectionView, isDisabled: boardType == .red)
+        setCollectionViewDisabled(blueCollectionView, isDisabled: boardType == .blue)
+    }
+    
+    private func setCollectionViewDisabled(_ collectionView: UIView, isDisabled: Bool) {
+        collectionView.isUserInteractionEnabled = !isDisabled
+        UIView.animate(withDuration: 0.15, animations: {
+            collectionView.alpha = isDisabled ? 1 : 1
+        })
     }
     
     private func getTypeOf(_ collectionView: UICollectionView) -> BoardType {

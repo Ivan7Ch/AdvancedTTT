@@ -12,7 +12,11 @@ class GameViewModel {
     let vc: GameViewController
     let gameData: GameData
     
-    var isBlueMove = true
+    var isBlueMove: Bool {
+        didSet {
+            vc.setCollectionViewDisabled(isBlueMove ? .red : .blue)
+        }
+    }
     var selected: Item?
     
     private var matrix = [[Item]]()
@@ -22,6 +26,7 @@ class GameViewModel {
     init(vc: GameViewController) {
         self.vc = vc
         self.gameData = GameData()
+        self.isBlueMove = true
     }
     
     private func setupMatrix() {
