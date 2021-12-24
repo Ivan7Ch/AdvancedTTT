@@ -15,6 +15,7 @@
 		5C1F59472658D1A200041373 /* AdvancedTTT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F59452658D1A200041373 /* AdvancedTTT.xcdatamodeld */; };
 		5C1F59492658D1A300041373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C1F59482658D1A300041373 /* Assets.xcassets */; };
 		5C1F594C2658D1A300041373 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1F594A2658D1A300041373 /* LaunchScreen.storyboard */; };
+		CE1432052776648A00124CEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1432042776648A00124CEE /* HomeViewController.swift */; };
 		CE1439722753F0C50014D068 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1439712753F0C50014D068 /* Side.swift */; };
 		CE1439742753F0E00014D068 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1439732753F0E00014D068 /* Item.swift */; };
 		CE1439762753F10A0014D068 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1439752753F10A0014D068 /* MainCollectionViewCell.swift */; };
@@ -36,6 +37,7 @@
 		5C1F594D2658D1A300041373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD7CD2E3915A17301EDAA812 /* Pods-AdvancedTTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.release.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.release.xcconfig"; sourceTree = "<group>"; };
 		AFD71D6FC7FDCA5F05E085FB /* Pods_AdvancedTTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdvancedTTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1432042776648A00124CEE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE1439712753F0C50014D068 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		CE1439732753F0E00014D068 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CE1439752753F10A0014D068 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		5C1F593B2658D1A200041373 /* AdvancedTTT */ = {
 			isa = PBXGroup;
 			children = (
+				CE1432032776645C00124CEE /* HomeScreen */,
 				CE1439802753FF740014D068 /* Cells */,
 				CE1439792753F26F0014D068 /* Extensions */,
 				CE1439702753F0B90014D068 /* Models */,
@@ -109,6 +112,14 @@
 				AD7CD2E3915A17301EDAA812 /* Pods-AdvancedTTT.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE1432032776645C00124CEE /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CE1432042776648A00124CEE /* HomeViewController.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		CE14396F2753F0A80014D068 /* MainFieldScreen */ = {
@@ -272,6 +283,7 @@
 				5C1F59472658D1A200041373 /* AdvancedTTT.xcdatamodeld in Sources */,
 				5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */,
 				CE14397B2753F2810014D068 /* UIViewController+Background.swift in Sources */,
+				CE1432052776648A00124CEE /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

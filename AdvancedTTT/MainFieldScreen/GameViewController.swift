@@ -64,32 +64,32 @@ class GameViewController: UIViewController {
         mainCollectionView.dataSource = self
         mainCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
         
-        mainCollectionView.dragInteractionEnabled = true
-        mainCollectionView.dragDelegate = self
-        mainCollectionView.dropDelegate = self
+//        mainCollectionView.dragInteractionEnabled = true
+//        mainCollectionView.dragDelegate = self
+//        mainCollectionView.dropDelegate = self
         
         //red
         redCollectionView.delegate = self
         redCollectionView.dataSource = self
         redCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
-        redCollectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+//        redCollectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
-        redCollectionView.dragInteractionEnabled = true
-        redCollectionView.dragDelegate = self
-        redCollectionView.dropDelegate = self
+//        redCollectionView.dragInteractionEnabled = true
+//        redCollectionView.dragDelegate = self
+//        redCollectionView.dropDelegate = self
         
         //blue
         blueCollectionView.delegate = self
         blueCollectionView.dataSource = self
         blueCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
-        blueCollectionView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//        blueCollectionView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        blueCollectionView.dragInteractionEnabled = true
-        blueCollectionView.dragDelegate = self
-        blueCollectionView.dropDelegate = self
+//        blueCollectionView.dragInteractionEnabled = true
+//        blueCollectionView.dragDelegate = self
+//        blueCollectionView.dropDelegate = self
         
-        changeMinimumPressDuration(for: blueCollectionView, 0.1)
-        changeMinimumPressDuration(for: redCollectionView, 0.1)
+//        changeMinimumPressDuration(for: blueCollectionView, 0.1)
+//        changeMinimumPressDuration(for: redCollectionView, 0.1)
         
         setCollectionViewDisabled(.red)
     }
@@ -128,7 +128,7 @@ class GameViewController: UIViewController {
     private func setCollectionViewDisabled(_ collectionView: UIView, isDisabled: Bool) {
         collectionView.isUserInteractionEnabled = !isDisabled
         UIView.animate(withDuration: 0.15, animations: {
-            collectionView.alpha = isDisabled ? 1 : 1
+            collectionView.alpha = isDisabled ? 0.6 : 1
         })
     }
     
