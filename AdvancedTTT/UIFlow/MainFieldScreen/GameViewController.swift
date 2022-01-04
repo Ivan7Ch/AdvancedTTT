@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 struct Constants {
     static let collectionViewCornerRadius: CGFloat = 10
@@ -27,7 +28,9 @@ class GameViewController: UIViewController {
     @IBOutlet var roundedViews: [UIView]!
     @IBOutlet var shadowViews: [UIView]!
     
-    var viewModel: GameViewModel!
+    private var viewModel: GameViewModel!
+    private var interstitial: GADInterstitialAd?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +58,7 @@ class GameViewController: UIViewController {
         blueHeightConstraint.constant = height
         
         addBackground()
+        loadAdvert()
     }
     
     private func setupCollectionViews() {
@@ -113,8 +117,13 @@ class GameViewController: UIViewController {
     func showWinAlert(with title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { _ in
-            self.viewModel.reloadGame()
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { [weak self] _ in
+            guard let self = self, let interstitial = self.interstitial else {
+                self?.viewModel.reloadGame()
+                return
+            }
+            
+            interstitial.present(fromRootViewController: self)
         }))
         
         self.present(alert, animated: true)
@@ -258,4 +267,32 @@ extension GameViewController : UICollectionViewDropDelegate {
     }
 }
 
-
+extension GameViewController: GADFullScreenContentDelegate {
+    
+    private func loadAdvert() {
+        let request = GADRequest()
+        //ca-app-pub-9391157593798156/5924690659
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910", request: request, completionHandler: { [self] ad, error in
+            
+            if let error = error {
+                print("§ Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            print("§ success")
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        })
+    }
+    
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("§ Ad did fail to present full screen content.")
+        viewModel.reloadGame()
+    }
+    
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("§ Ad did dismiss full screen content.")
+        viewModel.reloadGame()
+    }
+}

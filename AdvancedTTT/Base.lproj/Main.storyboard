@@ -31,7 +31,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="So0-wQ-mp6" kind="show" id="1J9-m5-4ud"/>
+                                            <segue destination="So0-wQ-mp6" kind="show" id="ar7-cd-2Kv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-SB-PWp">
@@ -480,7 +480,7 @@
         <!--Advanced TicTacToe-->
         <scene sceneID="Twg-c1-QOb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="So0-wQ-mp6" customClass="GameViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" modalPresentationStyle="fullScreen" id="So0-wQ-mp6" customClass="GameViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qhd-Eo-siT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
