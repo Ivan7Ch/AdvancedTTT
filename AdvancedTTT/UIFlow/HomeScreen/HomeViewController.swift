@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBackground()
+        //addBackground()
         
         playButton.layer.cornerRadius = Constants.collectionViewCornerRadius
         howToPlayButton.layer.cornerRadius = Constants.collectionViewCornerRadius

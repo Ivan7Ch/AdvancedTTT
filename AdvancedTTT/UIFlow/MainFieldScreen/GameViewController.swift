@@ -144,6 +144,13 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func didTapBackButton() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapReloadButton() {
+        viewModel.reloadGame()
+    }
 }
 
 

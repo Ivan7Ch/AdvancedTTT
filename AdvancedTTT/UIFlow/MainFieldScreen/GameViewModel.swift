@@ -9,12 +9,12 @@ import Foundation
 
 class GameViewModel {
     
-    let vc: GameViewController
+    weak var vc: GameViewController?
     let gameData: GameData
     
     var isBlueMove: Bool {
         didSet {
-            vc.setCollectionViewDisabled(isBlueMove ? .red : .blue)
+            vc?.setCollectionViewDisabled(isBlueMove ? .red : .blue)
         }
     }
     var selected: Item?
@@ -53,6 +53,8 @@ class GameViewModel {
     }
     
     func check() {
+        guard let vc = vc else { return }
+        
         setupMatrix()
         
         for j in 0..<3 {
@@ -105,7 +107,7 @@ extension GameViewModel {
     
     func removeSelections() {
         gameData.removeSelections()
-        vc.reloadViews()
+        vc?.reloadViews()
     }
     
     func getItemFor(_ indexPath: IndexPath, in resourceType: BoardType) -> Item {
@@ -121,7 +123,7 @@ extension GameViewModel {
     
     func reloadGame() {
         gameData.setupArrays()
-        vc.reloadViews()
+        vc?.reloadViews()
     }
     
     func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
@@ -136,7 +138,7 @@ extension GameViewModel {
             didTapOnSecondary(source: gameData.blueSource, at: indexPath)
         }
         
-        vc.reloadViews()
+        vc?.reloadViews()
     }
     
     func didTapToDrag(at indexPath: IndexPath, for type: BoardType) {
