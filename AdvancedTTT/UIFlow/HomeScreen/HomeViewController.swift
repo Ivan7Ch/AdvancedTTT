@@ -6,22 +6,22 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playWithPCButton: UIButton!
+    @IBOutlet weak var playWithFriendButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
-    
-    private var interstitial: GADInterstitialAd?
-    
+    @IBOutlet weak var aboutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playButton.layer.cornerRadius = Constants.collectionViewCornerRadius
+        addBackground()
+        
+//        playWithPCButton.layer.cornerRadius = Constants.collectionViewCornerRadius
+        playWithFriendButton.layer.cornerRadius = Constants.collectionViewCornerRadius
         howToPlayButton.layer.cornerRadius = Constants.collectionViewCornerRadius
-        
-        
+        aboutButton.layer.cornerRadius = Constants.collectionViewCornerRadius
     }
 }

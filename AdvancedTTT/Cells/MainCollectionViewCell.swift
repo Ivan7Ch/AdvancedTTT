@@ -10,4 +10,10 @@ import UIKit
 class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lab: UILabel!
     @IBOutlet weak var diceIcon: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        diceIcon.tintColor = .white
+    }
 }

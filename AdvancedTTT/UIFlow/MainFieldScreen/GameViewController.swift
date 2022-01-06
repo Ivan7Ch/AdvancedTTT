@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
     
     private var viewModel: GameViewModel!
     private var interstitial: GADInterstitialAd?
-    
+    private var defaultHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +51,16 @@ class GameViewController: UIViewController {
             i.layer.shadowRadius = 20
         }
         
-        view.layoutIfNeeded()
+//        view.layoutIfNeeded()
         
-        let height = (blueCollectionView.bounds.width - 2) / 3
-        redHeightConstraint.constant = height
-        blueHeightConstraint.constant = height
+//        addBackground()
         
-        addBackground()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reloadViews()
         loadAdvert()
     }
     
@@ -134,10 +137,10 @@ class GameViewController: UIViewController {
         setCollectionViewDisabled(blueCollectionView, isDisabled: boardType == .blue)
     }
     
-    private func setCollectionViewDisabled(_ collectionView: UIView, isDisabled: Bool) {
+    private func setCollectionViewDisabled(_ collectionView: UICollectionView, isDisabled: Bool) {
         collectionView.isUserInteractionEnabled = !isDisabled
         UIView.animate(withDuration: 0.15, animations: {
-            collectionView.alpha = isDisabled ? 0.6 : 1
+            collectionView.alpha = isDisabled ? 0.3 : 1
         })
     }
     
@@ -196,13 +199,14 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let collectionViewWidth = collectionView.bounds.width
+        let width = collectionView.bounds.width
+        let height = collectionView.bounds.height
         if collectionView == mainCollectionView {
-            let cellWidth = (collectionViewWidth / 3) - 1
+            let cellWidth = (width / 3) - 1
             return CGSize(width: cellWidth, height: cellWidth)
         }
-        let cellWidth = (collectionViewWidth - 3) / 3
-        return CGSize(width: cellWidth, height: cellWidth / 2)
+        
+        return CGSize(width: (width - 2) / 3, height: (height - 1) / 2)
     }
 }
 
