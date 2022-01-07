@@ -1,41 +1,31 @@
 //
-//  ViewController.swift
+//  PlayOnlineViewController.swift
 //  AdvancedTTT
 //
-//  Created by Ivan Chernetskyi on 22.05.2021.
+//  Created by User on 08.01.2022.
 //
 
 import UIKit
 import GoogleMobileAds
 
-struct Constants {
-    static let collectionViewCornerRadius: CGFloat = 10
-}
 
-protocol GameViewControllerDelegate {
-    
-    func removeSelections()
-}
-
-class GameViewController: UIViewController {
+class PlayOnlineViewController: UIViewController {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
-    @IBOutlet weak var redCollectionView: UICollectionView!
     @IBOutlet weak var blueCollectionView: UICollectionView!
-    @IBOutlet weak var redHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var blueHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet var roundedViews: [UIView]!
     @IBOutlet var shadowViews: [UIView]!
     
-    private var viewModel: GameViewModel!
+    private var viewModel: PlayOnlineViewModel!
     private var interstitial: GADInterstitialAd?
     private var defaultHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = GameViewModel(vc: self)
+        viewModel = PlayOnlineViewModel(vc: self)
         
         setupCollectionViews()
         
@@ -50,18 +40,13 @@ class GameViewController: UIViewController {
             i.layer.shadowOffset = CGSize(width: 5, height: 12)
             i.layer.shadowRadius = 20
         }
-        
-//        view.layoutIfNeeded()
-        
-//        addBackground()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         reloadViews()
-        loadAdvert()
+        viewModel.fetchField()
     }
     
     private func setupCollectionViews() {
@@ -71,48 +56,14 @@ class GameViewController: UIViewController {
         mainCollectionView.dataSource = self
         mainCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
         
-//        mainCollectionView.dragInteractionEnabled = true
-//        mainCollectionView.dragDelegate = self
-//        mainCollectionView.dropDelegate = self
-        
-        //red
-        redCollectionView.delegate = self
-        redCollectionView.dataSource = self
-        redCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
-//        redCollectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        
-//        redCollectionView.dragInteractionEnabled = true
-//        redCollectionView.dragDelegate = self
-//        redCollectionView.dropDelegate = self
-        
         //blue
         blueCollectionView.delegate = self
         blueCollectionView.dataSource = self
         blueCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
-//        blueCollectionView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
-//        blueCollectionView.dragInteractionEnabled = true
-//        blueCollectionView.dragDelegate = self
-//        blueCollectionView.dropDelegate = self
-        
-//        changeMinimumPressDuration(for: blueCollectionView, 0.1)
-//        changeMinimumPressDuration(for: redCollectionView, 0.1)
-        
-        setCollectionViewDisabled(.red)
-    }
-    
-    private func changeMinimumPressDuration(for collectionView: UICollectionView, _ duration: TimeInterval) {
-        
-        collectionView.gestureRecognizers?.forEach { (recognizer) in
-            if let longPressRecognizer = recognizer as? UILongPressGestureRecognizer {
-                longPressRecognizer.minimumPressDuration = duration
-            }
-        }
     }
     
     func reloadViews() {
         mainCollectionView.reloadData()
-        redCollectionView.reloadData()
         blueCollectionView.reloadData()
         viewModel.check()
     }
@@ -133,8 +84,7 @@ class GameViewController: UIViewController {
     }
     
     func setCollectionViewDisabled(_ boardType: BoardType) {
-        setCollectionViewDisabled(redCollectionView, isDisabled: boardType == .red)
-        setCollectionViewDisabled(blueCollectionView, isDisabled: boardType == .blue)
+//        setCollectionViewDisabled(blueCollectionView, isDisabled: boardType == .blue)
     }
     
     private func setCollectionViewDisabled(_ collectionView: UICollectionView, isDisabled: Bool) {
@@ -147,8 +97,6 @@ class GameViewController: UIViewController {
     private func getTypeOf(_ collectionView: UICollectionView) -> BoardType {
         
         switch collectionView {
-        case redCollectionView:
-            return .red
         case blueCollectionView:
             return .blue
         default:
@@ -166,7 +114,7 @@ class GameViewController: UIViewController {
 }
 
 
-extension GameViewController: UICollectionViewDataSource {
+extension PlayOnlineViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mainCollectionView {
@@ -190,7 +138,7 @@ extension GameViewController: UICollectionViewDataSource {
 }
 
 
-extension GameViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension PlayOnlineViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let type = getTypeOf(collectionView)
@@ -212,7 +160,7 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDelegate
 
 
 // MARK: - UICollectionViewDragDelegate Methods
-extension GameViewController : UICollectionViewDragDelegate {
+extension PlayOnlineViewController : UICollectionViewDragDelegate {
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         if collectionView == mainCollectionView { return [] }
@@ -236,7 +184,7 @@ extension GameViewController : UICollectionViewDragDelegate {
 }
 
 // MARK: - UICollectionViewDropDelegate Methods
-extension GameViewController : UICollectionViewDropDelegate {
+extension PlayOnlineViewController : UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
         return session.canLoadObjects(ofClass: NSString.self)
@@ -271,7 +219,7 @@ extension GameViewController : UICollectionViewDropDelegate {
     }
 }
 
-extension GameViewController: GADFullScreenContentDelegate {
+extension PlayOnlineViewController: GADFullScreenContentDelegate {
     
     private func loadAdvert() {
         let request = GADRequest()
@@ -300,3 +248,4 @@ extension GameViewController: GADFullScreenContentDelegate {
         viewModel.reloadGame()
     }
 }
+

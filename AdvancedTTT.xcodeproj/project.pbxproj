@@ -26,6 +26,11 @@
 		CE749FA8278442BD004F3D75 /* HowToPlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FA7278442BD004F3D75 /* HowToPlayViewModel.swift */; };
 		CE749FAA278442C9004F3D75 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FA9278442C9004F3D75 /* HowToPlayViewController.swift */; };
 		CE749FAC27844927004F3D75 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE749FAB27844927004F3D75 /* Localizable.strings */; };
+		CE749FB0278841DC004F3D75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE749FAF278841DC004F3D75 /* GoogleService-Info.plist */; };
+		CE749FB3278853BD004F3D75 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB2278853BD004F3D75 /* FirebaseHelper.swift */; };
+		CE749FB52788A116004F3D75 /* GameFieldCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB42788A116004F3D75 /* GameFieldCoder.swift */; };
+		CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */; };
+		CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +56,11 @@
 		CE749FA7278442BD004F3D75 /* HowToPlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayViewModel.swift; sourceTree = "<group>"; };
 		CE749FA9278442C9004F3D75 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
 		CE749FAB27844927004F3D75 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE749FAF278841DC004F3D75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE749FB2278853BD004F3D75 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		CE749FB42788A116004F3D75 /* GameFieldCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldCoder.swift; sourceTree = "<group>"; };
+		CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayOnlineViewController.swift; sourceTree = "<group>"; };
+		CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayOnlineViewModel.swift; sourceTree = "<group>"; };
 		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +97,7 @@
 		5C1F593B2658D1A200041373 /* AdvancedTTT */ = {
 			isa = PBXGroup;
 			children = (
+				CE749FB1278853AC004F3D75 /* Helpers */,
 				CE749FA527844261004F3D75 /* UIFlow */,
 				CE1439802753FF740014D068 /* Cells */,
 				CE1439792753F26F0014D068 /* Extensions */,
@@ -99,6 +110,7 @@
 				5C1F594D2658D1A300041373 /* Info.plist */,
 				5C1F59452658D1A200041373 /* AdvancedTTT.xcdatamodeld */,
 				CE749FAB27844927004F3D75 /* Localizable.strings */,
+				CE749FAF278841DC004F3D75 /* GoogleService-Info.plist */,
 			);
 			path = AdvancedTTT;
 			sourceTree = "<group>";
@@ -128,14 +140,14 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
-		CE14396F2753F0A80014D068 /* MainFieldScreen */ = {
+		CE14396F2753F0A80014D068 /* Play with friend */ = {
 			isa = PBXGroup;
 			children = (
 				5C1F59402658D1A200041373 /* GameViewController.swift */,
 				CE1439772753F1320014D068 /* GameViewModel.swift */,
 				CE14397C2753F9C00014D068 /* GameData.swift */,
 			);
-			path = MainFieldScreen;
+			path = "Play with friend";
 			sourceTree = "<group>";
 		};
 		CE1439702753F0B90014D068 /* Models */ = {
@@ -168,7 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				CE749FA62784427E004F3D75 /* HowToPlayScreen */,
-				CE14396F2753F0A80014D068 /* MainFieldScreen */,
+				CE14396F2753F0A80014D068 /* Play with friend */,
+				CE749FB62788F1D5004F3D75 /* PlayOnline */,
 				CE1432032776645C00124CEE /* HomeScreen */,
 			);
 			path = UIFlow;
@@ -181,6 +194,24 @@
 				CE749FA9278442C9004F3D75 /* HowToPlayViewController.swift */,
 			);
 			path = HowToPlayScreen;
+			sourceTree = "<group>";
+		};
+		CE749FB1278853AC004F3D75 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CE749FB2278853BD004F3D75 /* FirebaseHelper.swift */,
+				CE749FB42788A116004F3D75 /* GameFieldCoder.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE749FB62788F1D5004F3D75 /* PlayOnline */ = {
+			isa = PBXGroup;
+			children = (
+				CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */,
+				CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */,
+			);
+			path = PlayOnline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +275,7 @@
 			files = (
 				5C1F594C2658D1A300041373 /* LaunchScreen.storyboard in Resources */,
 				CE749FAC27844927004F3D75 /* Localizable.strings in Resources */,
+				CE749FB0278841DC004F3D75 /* GoogleService-Info.plist in Resources */,
 				5C1F59492658D1A300041373 /* Assets.xcassets in Resources */,
 				5C1F59442658D1A200041373 /* Main.storyboard in Resources */,
 			);
@@ -302,14 +334,18 @@
 				CE14397F2753FBFE0014D068 /* BoardType.swift in Sources */,
 				CE749FA8278442BD004F3D75 /* HowToPlayViewModel.swift in Sources */,
 				CE14397D2753F9C00014D068 /* GameData.swift in Sources */,
+				CE749FB3278853BD004F3D75 /* FirebaseHelper.swift in Sources */,
 				CE1439722753F0C50014D068 /* Side.swift in Sources */,
 				CE1439762753F10A0014D068 /* MainCollectionViewCell.swift in Sources */,
+				CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */,
 				5C1F593D2658D1A200041373 /* AppDelegate.swift in Sources */,
 				CE1439742753F0E00014D068 /* Item.swift in Sources */,
 				CE1439782753F1320014D068 /* GameViewModel.swift in Sources */,
+				CE749FB52788A116004F3D75 /* GameFieldCoder.swift in Sources */,
 				5C1F59472658D1A200041373 /* AdvancedTTT.xcdatamodeld in Sources */,
 				CE749FAA278442C9004F3D75 /* HowToPlayViewController.swift in Sources */,
 				5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */,
+				CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */,
 				CE14397B2753F2810014D068 /* UIViewController+Background.swift in Sources */,
 				CE1432052776648A00124CEE /* HomeViewController.swift in Sources */,
 			);

@@ -7,5 +7,10 @@ target 'AdvancedTTT' do
 
   pod 'Pastel'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
 end

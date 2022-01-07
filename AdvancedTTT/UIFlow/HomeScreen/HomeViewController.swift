@@ -9,7 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var playWithPCButton: UIButton!
+//    @IBOutlet weak var playWithPCButton: UIButton!
+    @IBOutlet weak var playOnlineButton: UIButton!
     @IBOutlet weak var playWithFriendButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
     @IBOutlet weak var aboutButton: UIButton!
@@ -19,7 +20,7 @@ class HomeViewController: UIViewController {
         
         addBackground()
         
-//        playWithPCButton.layer.cornerRadius = Constants.collectionViewCornerRadius
+//        playOnlineButton.layer.cornerRadius = Constants.collectionViewCornerRadius
         playWithFriendButton.layer.cornerRadius = Constants.collectionViewCornerRadius
         howToPlayButton.layer.cornerRadius = Constants.collectionViewCornerRadius
         aboutButton.layer.cornerRadius = Constants.collectionViewCornerRadius

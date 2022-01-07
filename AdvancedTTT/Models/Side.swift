@@ -11,4 +11,9 @@ enum Side {
     case blue
     case red
     case unknown
+    
+    func toLetter(power: Int) -> String? {
+        
+        return nil
+    }
 }
