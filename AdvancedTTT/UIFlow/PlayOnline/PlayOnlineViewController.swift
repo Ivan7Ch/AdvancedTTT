@@ -97,10 +97,10 @@ class PlayOnlineViewController: UIViewController {
     private func getTypeOf(_ collectionView: UICollectionView) -> BoardType {
         
         switch collectionView {
-        case blueCollectionView:
-            return .blue
-        default:
+        case mainCollectionView:
             return .main
+        default:
+            return viewModel.playerBoardType
         }
     }
     
@@ -131,7 +131,7 @@ extension PlayOnlineViewController: UICollectionViewDataSource {
         let item = viewModel.getItemFor(indexPath, in: type)
             
         cell.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.backgroundColor =  item.color
+        cell.backgroundColor = item.color
         cell.diceIcon.image = UIImage(named: "\(item.power)")
         return cell
     }

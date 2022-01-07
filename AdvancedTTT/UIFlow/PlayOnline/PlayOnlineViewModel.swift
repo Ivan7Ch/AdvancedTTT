@@ -22,11 +22,14 @@ class PlayOnlineViewModel {
     private var matrix = [[Item]]()
     private let sideLenght = 3
     
+    var playerBoardType: BoardType
+    var room = "112233"
     
     init(vc: PlayOnlineViewController) {
         self.vc = vc
         self.gameData = GameData()
         self.isBlueMove = true
+        self.playerBoardType = Bool.random() ? .blue : .red
     }
     
     private func setupMatrix() {
@@ -132,6 +135,7 @@ extension PlayOnlineViewModel {
     }
     
     func reloadGame() {
+        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true))
         gameData.setupArrays()
         vc?.reloadViews()
     }
@@ -141,7 +145,7 @@ extension PlayOnlineViewModel {
         case .main:
             didTapOnMainSource(at: indexPath)
         case .red:
-            if isBlueMove { break }
+            if !isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)
         case .blue:
             if !isBlueMove { break }
@@ -150,7 +154,7 @@ extension PlayOnlineViewModel {
         
         if let encodedField = GameFieldCoder.encode(from: gameData.mainSource),
            encodedField.count == 9 {
-            FirebaseHelper(room: "112233").writeData(data: RawGameData(field: encodedField, isBlueMove: true))
+            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: true))
         }
         
         vc?.reloadViews()

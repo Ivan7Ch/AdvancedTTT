@@ -125,8 +125,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="🔄"/>
                                 <connections>
-                                    <action selector="didTapReloadButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="5NL-GP-b0u"/>
-                                    <action selector="didTapReloadButton" destination="So0-wQ-mp6" eventType="touchUpInside" id="ZCe-sG-e7q"/>
+                                    <action selector="didTapReloadButton" destination="EIZ-Oz-6At" eventType="touchUpInside" id="jpB-fn-OB7"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-cK-cr5">
@@ -153,8 +152,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="⬅️"/>
                                 <connections>
-                                    <action selector="didTapBackButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXO-FL-32J"/>
-                                    <action selector="didTapBackButton" destination="So0-wQ-mp6" eventType="touchUpInside" id="o53-DO-cbd"/>
+                                    <action selector="didTapBackButton" destination="EIZ-Oz-6At" eventType="touchUpInside" id="GMD-hM-PYP"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="829-13-1f5">
