@@ -42,7 +42,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="EIZ-Oz-6At" kind="show" id="05U-b7-4AJ"/>
+                                            <segue destination="F9l-cr-OGy" kind="show" id="XFB-Si-cGW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-SB-PWp">
@@ -102,6 +102,7 @@
                     <connections>
                         <outlet property="aboutButton" destination="fBN-Hm-PSe" id="kK7-Tv-byO"/>
                         <outlet property="howToPlayButton" destination="f5M-SB-PWp" id="aTL-OJ-Kd4"/>
+                        <outlet property="playOnlineButton" destination="MQx-ra-SjK" id="UBV-D8-57r"/>
                         <outlet property="playWithFriendButton" destination="Zbq-YD-RwV" id="pdM-xK-8sM"/>
                     </connections>
                 </viewController>
@@ -109,10 +110,87 @@
             </objects>
             <point key="canvasLocation" x="-465.21739130434787" y="151.33928571428569"/>
         </scene>
+        <!--Connect To Room View Controller-->
+        <scene sceneID="s0E-TA-0YZ">
+            <objects>
+                <viewController storyboardIdentifier="ConnectToRoomViewController" modalPresentationStyle="fullScreen" id="F9l-cr-OGy" customClass="ConnectToRoomViewController" customModule="AdvancedTTT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0o3-FQ-neI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TML-N8-x43">
+                                <rect key="frame" x="15" y="196" width="384" height="240"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-wF-nvD">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="240"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3vu-WS-rsU">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="70"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="search" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COs-7g-1Rr">
+                                                <rect key="frame" x="0.0" y="85" width="384" height="70"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="Connect to Room">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="connectToRoomButtonAction" destination="F9l-cr-OGy" eventType="touchUpInside" id="S4I-Aa-N7m"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABp-ZT-clL">
+                                                <rect key="frame" x="0.0" y="170" width="384" height="70"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="Create new Room">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="createNewRoomButtonAction" destination="F9l-cr-OGy" eventType="touchUpInside" id="7ob-8T-jN0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="czL-mx-Mix"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="MBl-wF-nvD" secondAttribute="bottom" id="7V8-UV-DUj"/>
+                                    <constraint firstAttribute="trailing" secondItem="MBl-wF-nvD" secondAttribute="trailing" id="Gvg-8w-yAA"/>
+                                    <constraint firstItem="MBl-wF-nvD" firstAttribute="top" secondItem="TML-N8-x43" secondAttribute="top" id="LYN-go-7sp"/>
+                                    <constraint firstItem="MBl-wF-nvD" firstAttribute="leading" secondItem="TML-N8-x43" secondAttribute="leading" id="RkT-HJ-CrD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hdL-lo-H58"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="TML-N8-x43" firstAttribute="centerX" secondItem="0o3-FQ-neI" secondAttribute="centerX" id="1ff-DX-MjT"/>
+                            <constraint firstItem="hdL-lo-H58" firstAttribute="bottom" secondItem="TML-N8-x43" secondAttribute="bottom" constant="300" id="7wb-dF-m8x"/>
+                            <constraint firstItem="TML-N8-x43" firstAttribute="leading" secondItem="hdL-lo-H58" secondAttribute="leading" constant="15" id="kL4-Lg-XBc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oha-Iy-YMr"/>
+                    <connections>
+                        <outlet property="connectToRoomButton" destination="COs-7g-1Rr" id="PFG-lN-ETE"/>
+                        <outlet property="createNewRoomButton" destination="ABp-ZT-clL" id="YhN-1U-CBB"/>
+                        <outlet property="textField" destination="3vu-WS-rsU" id="iZd-6F-GOK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bds-ku-cGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869.56521739130437" y="164.67391304347828"/>
+        </scene>
         <!--Play Online View Controller-->
         <scene sceneID="b5j-Ft-Ups">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="EIZ-Oz-6At" customClass="PlayOnlineViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayOnlineViewController" modalPresentationStyle="fullScreen" id="EIZ-Oz-6At" customClass="PlayOnlineViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ig-GA-50Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8I-Ql-zOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="695.6521739130435" y="150.81521739130437"/>
+            <point key="canvasLocation" x="1803" y="151"/>
         </scene>
         <!--Advanced TicTacToe-->
         <scene sceneID="tne-QT-ifu">
@@ -921,6 +999,15 @@
         <image name="withoutBG" width="3464" height="3464"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

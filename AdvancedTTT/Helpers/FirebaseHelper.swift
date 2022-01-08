@@ -34,4 +34,15 @@ class FirebaseHelper {
     func writeData(data: RawGameData) {
         ref.setData(["f" : data.field, "b" : data.isBlueMove])
     }
+    
+    func isRoomExists(_ completion: @escaping ((Bool) -> Void)) {
+        ref.getDocument { (document, error) in
+            guard let document = document else {
+                completion(false)
+                return
+            }
+            print("§ \(document.exists)")
+            completion(document.exists)
+        }
+    }
 }
