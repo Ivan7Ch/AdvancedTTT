@@ -105,7 +105,7 @@ class PlayOnlineViewModel {
     }
     
     func fetchField() {
-        FirebaseHelper(room: "112233").listenField { [weak self] data in
+        FirebaseHelper(room: room).listenField { [weak self] data in
             guard let field = GameFieldCoder.decode(from: data?.field ?? "") else { return }
             
             self?.isBlueMove = data?.isBlueMove ?? false

@@ -32,7 +32,23 @@ class ConnectToRoomViewController: UIViewController {
     }
     
     @IBAction func createNewRoomButtonAction() {
-        showVC(with: .blue, roomNumber: "112233")
+        let number = String(Int.random(in: 100000...999999))
+        checkIfRoomExists(roomNumber: number, res: { [weak self] exists in
+            if !exists {
+                FirebaseHelper(room: number).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true))
+                self?.showMessage(number: number)
+            } else {
+                self?.createNewRoomButtonAction()
+            }
+        })
+    }
+    
+    private func showMessage(number: String) {
+        let alert = UIAlertController(title: number, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Play", style: .default, handler: { [weak self] _ in
+            self?.showVC(with: .blue, roomNumber: number)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func showVC(with boardType: BoardType, roomNumber: String) {
