@@ -32,14 +32,14 @@ class ConnectToRoomViewController: UIViewController {
     }
     
     @IBAction func createNewRoomButtonAction() {
-        let number = String(Int.random(in: 100000...999999))
-        checkIfRoomExists(roomNumber: number, res: { [weak self] exists in
-            if !exists {
-                FirebaseHelper(room: number).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true))
-                self?.showMessage(number: number)
-            } else {
-                self?.createNewRoomButtonAction()
+        getRoomNumber(res: { [weak self] roomNumber in
+            var newNumberString = "000000"
+            if let roomNumber = roomNumber, let num = Int(roomNumber) {
+                newNumberString = String(format: "%06d", num + 1)
             }
+            let data = RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: newNumberString)
+            FirebaseHelper(room: newNumberString).writeData(data: data)
+            self?.showMessage(number: newNumberString)
         })
     }
     
@@ -63,6 +63,13 @@ class ConnectToRoomViewController: UIViewController {
         FirebaseHelper(room: roomNumber).isRoomExists({ exists in
             res(exists)
         })
+    }
+    
+    func getRoomNumber(res: @escaping (String?) -> Void) {
+        FirebaseHelper().getHighestRoomNumber() { roomNumber in
+            print("§ \(roomNumber)")
+            res(roomNumber)
+        }
     }
 }
 

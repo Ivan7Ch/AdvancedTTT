@@ -23,7 +23,7 @@ class PlayOnlineViewModel {
     private let sideLenght = 3
     
     var playerBoardType: BoardType
-    var room = "112233"
+    var room = "000000"
     
     init(vc: PlayOnlineViewController) {
         self.vc = vc
@@ -135,7 +135,7 @@ extension PlayOnlineViewModel {
     }
     
     func reloadGame() {
-        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true))
+        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room))
         gameData.setupArrays()
         vc?.reloadViews()
     }
@@ -154,7 +154,7 @@ extension PlayOnlineViewModel {
         
         if let encodedField = GameFieldCoder.encode(from: gameData.mainSource),
            encodedField.count == 9 {
-            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: true))
+            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: true, roomNumber: room))
         }
         
         vc?.reloadViews()
