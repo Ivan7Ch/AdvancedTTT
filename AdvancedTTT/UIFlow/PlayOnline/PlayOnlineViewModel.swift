@@ -28,7 +28,7 @@ class PlayOnlineViewModel {
     init(vc: PlayOnlineViewController) {
         self.vc = vc
         self.gameData = GameData()
-        self.isBlueMove = true
+        self.isBlueMove = vc.playerBoardType == .blue
         self.playerBoardType = Bool.random() ? .blue : .red
     }
     
@@ -145,7 +145,7 @@ extension PlayOnlineViewModel {
         case .main:
             didTapOnMainSource(at: indexPath)
         case .red:
-            if !isBlueMove { break }
+            if isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)
         case .blue:
             if !isBlueMove { break }
@@ -154,7 +154,7 @@ extension PlayOnlineViewModel {
         
         if let encodedField = GameFieldCoder.encode(from: gameData.mainSource),
            encodedField.count == 9 {
-            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: true, roomNumber: room))
+            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: isBlueMove, roomNumber: room))
         }
         
         vc?.reloadViews()

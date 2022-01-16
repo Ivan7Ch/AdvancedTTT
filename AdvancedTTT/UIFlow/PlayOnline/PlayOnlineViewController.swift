@@ -21,6 +21,7 @@ class PlayOnlineViewController: UIViewController {
     private var viewModel: PlayOnlineViewModel!
     private var interstitial: GADInterstitialAd?
     private var defaultHeight: CGFloat = 0
+    
     var playerBoardType: BoardType!
     var roomNumber: String!
     
