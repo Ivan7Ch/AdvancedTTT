@@ -9,7 +9,7 @@ import UIKit
 import GoogleMobileAds
 
 struct Constants {
-    static let collectionViewCornerRadius: CGFloat = 10
+    static let generalCornerRadius: CGFloat = 10
 }
 
 protocol GameViewControllerDelegate {
@@ -17,7 +17,7 @@ protocol GameViewControllerDelegate {
     func removeSelections()
 }
 
-class GameViewController: UIViewController {
+class GameViewController: BaseBackgroundViewController {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var redCollectionView: UICollectionView!
@@ -34,8 +34,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addBackground()
         
         viewModel = GameViewModel(vc: self)
         
@@ -75,7 +73,7 @@ class GameViewController: UIViewController {
         //main
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
-        mainCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        mainCollectionView.layer.cornerRadius = Constants.generalCornerRadius
         
 //        mainCollectionView.dragInteractionEnabled = true
 //        mainCollectionView.dragDelegate = self
@@ -84,7 +82,7 @@ class GameViewController: UIViewController {
         //red
         redCollectionView.delegate = self
         redCollectionView.dataSource = self
-        redCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        redCollectionView.layer.cornerRadius = Constants.generalCornerRadius
 //        redCollectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
 //        redCollectionView.dragInteractionEnabled = true
@@ -94,7 +92,7 @@ class GameViewController: UIViewController {
         //blue
         blueCollectionView.delegate = self
         blueCollectionView.dataSource = self
-        blueCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        blueCollectionView.layer.cornerRadius = Constants.generalCornerRadius
 //        blueCollectionView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
 //        blueCollectionView.dragInteractionEnabled = true

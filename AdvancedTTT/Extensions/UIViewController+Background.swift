@@ -10,7 +10,7 @@ import Pastel
 
 extension UIViewController {
     
-    func addBackground() {
+    func pastelView() -> PastelView {
         let pastelView = PastelView(frame: view.bounds)
         
         pastelView.startPastelPoint = .top
@@ -26,6 +26,8 @@ extension UIViewController {
         
         pastelView.setColors(colors)
         pastelView.startAnimation()
-        view.insertSubview(pastelView, at: 0)
+        
+        
+        return pastelView
     }
 }

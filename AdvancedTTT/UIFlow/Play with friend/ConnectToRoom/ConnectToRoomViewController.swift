@@ -8,7 +8,7 @@
 import UIKit
 import ProgressHUD
 
-class ConnectToRoomViewController: UIViewController {
+class ConnectToRoomViewController: BaseBackgroundViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var connectToRoomButton: UIButton!
@@ -18,7 +18,10 @@ class ConnectToRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBackground()
+        
+        [textField, connectToRoomButton, createNewRoomButton].forEach({ view in
+            view?.layer.cornerRadius = Constants.generalCornerRadius
+        })
         
         textField.delegate = self
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HowToPlayViewController: UIViewController {
+class HowToPlayViewController: BaseBackgroundViewController {
     
     @IBOutlet weak var textView: UITextView!
     
@@ -15,8 +15,6 @@ class HowToPlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addBackground()
         
         viewModel = HowToPlayViewModel()
         

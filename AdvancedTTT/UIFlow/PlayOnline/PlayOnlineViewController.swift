@@ -9,7 +9,7 @@ import UIKit
 import GoogleMobileAds
 
 
-class PlayOnlineViewController: UIViewController {
+class PlayOnlineViewController: BaseBackgroundViewController {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var blueCollectionView: UICollectionView!
@@ -29,7 +29,6 @@ class PlayOnlineViewController: UIViewController {
         super.viewDidLoad()
         
         title = roomNumber
-        addBackground()
         
         viewModel = PlayOnlineViewModel(vc: self)
         viewModel.playerBoardType = playerBoardType
@@ -62,12 +61,12 @@ class PlayOnlineViewController: UIViewController {
         //main
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
-        mainCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        mainCollectionView.layer.cornerRadius = Constants.generalCornerRadius
         
         //blue
         blueCollectionView.delegate = self
         blueCollectionView.dataSource = self
-        blueCollectionView.layer.cornerRadius = Constants.collectionViewCornerRadius
+        blueCollectionView.layer.cornerRadius = Constants.generalCornerRadius
     }
     
     func reloadViews() {

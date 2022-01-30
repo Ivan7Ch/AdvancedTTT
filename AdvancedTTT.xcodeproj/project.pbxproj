@@ -31,6 +31,7 @@
 		CE749FB52788A116004F3D75 /* GameFieldCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB42788A116004F3D75 /* GameFieldCoder.swift */; };
 		CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */; };
 		CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */; };
+		CEB050A527A722DE006D29FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050A427A722DE006D29FE /* BaseViewController.swift */; };
 		CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		CE749FB42788A116004F3D75 /* GameFieldCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldCoder.swift; sourceTree = "<group>"; };
 		CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayOnlineViewController.swift; sourceTree = "<group>"; };
 		CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayOnlineViewModel.swift; sourceTree = "<group>"; };
+		CEB050A427A722DE006D29FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToRoomViewController.swift; sourceTree = "<group>"; };
 		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +182,7 @@
 		CE749FA527844261004F3D75 /* UIFlow */ = {
 			isa = PBXGroup;
 			children = (
+				CEB050A327A722CB006D29FE /* BaseViewController */,
 				CE749FA62784427E004F3D75 /* HowToPlayScreen */,
 				CE14396F2753F0A80014D068 /* Play with friend */,
 				CE749FB62788F1D5004F3D75 /* PlayOnline */,
@@ -213,6 +216,14 @@
 				CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */,
 			);
 			path = PlayOnline;
+			sourceTree = "<group>";
+		};
+		CEB050A327A722CB006D29FE /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEB050A427A722DE006D29FE /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 		CEB2C01B2789ADC700A3EB43 /* ConnectToRoom */ = {
@@ -354,6 +365,7 @@
 				CE749FA8278442BD004F3D75 /* HowToPlayViewModel.swift in Sources */,
 				CE14397D2753F9C00014D068 /* GameData.swift in Sources */,
 				CE749FB3278853BD004F3D75 /* FirebaseHelper.swift in Sources */,
+				CEB050A527A722DE006D29FE /* BaseViewController.swift in Sources */,
 				CE1439722753F0C50014D068 /* Side.swift in Sources */,
 				CE1439762753F10A0014D068 /* MainCollectionViewCell.swift in Sources */,
 				CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */,

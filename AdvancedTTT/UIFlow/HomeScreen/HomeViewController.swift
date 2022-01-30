@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseBackgroundViewController {
     
 //    @IBOutlet weak var playWithPCButton: UIButton!
     @IBOutlet weak var playOnlineButton: UIButton!
@@ -18,11 +18,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBackground()
-        
-        playOnlineButton.layer.cornerRadius = Constants.collectionViewCornerRadius
-        playWithFriendButton.layer.cornerRadius = Constants.collectionViewCornerRadius
-        howToPlayButton.layer.cornerRadius = Constants.collectionViewCornerRadius
-        aboutButton.layer.cornerRadius = Constants.collectionViewCornerRadius
+        playOnlineButton.layer.cornerRadius = Constants.generalCornerRadius
+        playWithFriendButton.layer.cornerRadius = Constants.generalCornerRadius
+        howToPlayButton.layer.cornerRadius = Constants.generalCornerRadius
+        aboutButton.layer.cornerRadius = Constants.generalCornerRadius
     }
 }
