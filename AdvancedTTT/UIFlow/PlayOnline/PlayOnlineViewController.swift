@@ -28,6 +28,8 @@ class PlayOnlineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = roomNumber
+        
         viewModel = PlayOnlineViewModel(vc: self)
         viewModel.playerBoardType = playerBoardType
         viewModel.room = roomNumber

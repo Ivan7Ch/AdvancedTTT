@@ -34,7 +34,7 @@ class ConnectToRoomViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(identifier: "PlayOnlineViewController") as? PlayOnlineViewController {
             vc.playerBoardType = boardType
             vc.roomNumber = roomNumber
-            self.present(vc, animated: true, completion: nil)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
