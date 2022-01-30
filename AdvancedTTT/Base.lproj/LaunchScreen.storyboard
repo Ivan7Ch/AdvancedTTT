@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,25 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="iYr-GA-QgL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Super XO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKX-D0-fhp">
-                                <rect key="frame" x="126.5" y="424" width="161.5" height="48"/>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wng-U9-WtZ">
+                                <rect key="frame" x="47" y="398" width="320" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="withoutBG" translatesAutoresizingMaskIntoConstraints="NO" id="wxe-eK-7MA">
+                                        <rect key="frame" x="220" y="10" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="C90-kz-coo"/>
+                                            <constraint firstAttribute="height" constant="80" id="On0-T5-aw5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Super XO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efE-ft-ETx">
+                                        <rect key="frame" x="20" y="26" width="170" height="48"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="4X4-SD-vqO"/>
+                                    <constraint firstItem="efE-ft-ETx" firstAttribute="centerX" secondItem="Wng-U9-WtZ" secondAttribute="centerX" constant="-55" id="5DT-65-mVH"/>
+                                    <constraint firstItem="efE-ft-ETx" firstAttribute="centerY" secondItem="wxe-eK-7MA" secondAttribute="centerY" id="E1J-kg-ADj"/>
+                                    <constraint firstAttribute="trailing" secondItem="wxe-eK-7MA" secondAttribute="trailing" constant="20" id="FiB-Wn-hK3"/>
+                                    <constraint firstItem="efE-ft-ETx" firstAttribute="centerY" secondItem="Wng-U9-WtZ" secondAttribute="centerY" id="GNC-39-4mM"/>
+                                    <constraint firstItem="wxe-eK-7MA" firstAttribute="leading" secondItem="efE-ft-ETx" secondAttribute="trailing" constant="30" id="OuV-xX-GiI"/>
+                                    <constraint firstItem="efE-ft-ETx" firstAttribute="leading" secondItem="Wng-U9-WtZ" secondAttribute="leading" constant="20" id="dbm-qo-8ef"/>
+                                    <constraint firstAttribute="bottom" secondItem="wxe-eK-7MA" secondAttribute="bottom" constant="10" id="hgv-sG-Ibq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="iYr-GA-QgL" secondAttribute="trailing" id="0RQ-Ud-aBz"/>
-                            <constraint firstItem="hKX-D0-fhp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Heg-Xa-0JF"/>
-                            <constraint firstAttribute="bottom" secondItem="iYr-GA-QgL" secondAttribute="bottom" id="YVN-Fq-7cK"/>
-                            <constraint firstItem="iYr-GA-QgL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gbo-jz-x27"/>
-                            <constraint firstItem="iYr-GA-QgL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="hIA-Kf-7Rf"/>
-                            <constraint firstItem="hKX-D0-fhp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xXb-tb-52U"/>
+                            <constraint firstItem="Wng-U9-WtZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6bx-Rh-X5W"/>
+                            <constraint firstItem="Wng-U9-WtZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vhW-UE-wZg"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,9 +60,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image" width="800" height="1200"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="withoutBG" width="3464" height="3464"/>
     </resources>
 </document>
