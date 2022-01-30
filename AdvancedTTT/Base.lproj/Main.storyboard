@@ -582,7 +582,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="6rb-lc-FkU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                 <state key="normal" title="🔄"/>
                                 <connections>
                                     <action selector="didTapReloadButton" destination="So0-wQ-mp6" eventType="touchUpInside" id="AWY-34-raY"/>

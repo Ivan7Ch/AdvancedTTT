@@ -1,20 +1,26 @@
 //
-//  GameViewModel.swift
+//  GameViewModelBase.swift.swift
 //  AdvancedTTT
 //
-//  Created by User on 28.11.2021.
+//  Created by User on 30.01.2022.
 //
 
 import Foundation
 
-class GameViewModel {
+protocol GameViewModelDelegate {
+    func showWinAlert(with: String)
+    func reloadViews()
+    func setCollectionViewDisabled(_ boardType: BoardType)
+}
+
+class GameViewModelBase {
     
-    weak var vc: GameViewController?
+    var delegate: GameViewModelDelegate?
     let gameData: GameData
     
     var isBlueMove: Bool {
         didSet {
-            vc?.setCollectionViewDisabled(isBlueMove ? .red : .blue)
+            delegate?.setCollectionViewDisabled(isBlueMove ? .red : .blue)
         }
     }
     var selected: Item?
@@ -23,8 +29,8 @@ class GameViewModel {
     private let sideLenght = 3
     
     
-    init(vc: GameViewController) {
-        self.vc = vc
+    init(vc: GameViewModelDelegate) {
+        self.delegate = vc
         self.gameData = GameData()
         self.isBlueMove = true
     }
@@ -53,14 +59,14 @@ class GameViewModel {
     }
     
     func check() {
-        guard let vc = vc else { return }
+        guard let delegate = delegate else { return }
         
         setupMatrix()
         
         for j in 0..<3 {
             if matrix[j][0].side == .unknown { continue }
             if matrix[j][0].side == matrix[j][1].side, matrix[j][1].side == matrix[j][2].side {
-                vc.showWinAlert(with: winMessage(for: matrix[j][0].side))
+                delegate.showWinAlert(with: winMessage(for: matrix[j][0].side))
                 return
             }
         }
@@ -68,23 +74,23 @@ class GameViewModel {
         for j in 0..<3 {
             if matrix[0][j].side == .unknown { continue }
             if matrix[0][j].side == matrix[1][j].side, matrix[1][j].side == matrix[2][j].side {
-                vc.showWinAlert(with: winMessage(for: matrix[0][j].side))
+                delegate.showWinAlert(with: winMessage(for: matrix[0][j].side))
                 return
             }
         }
         
         if matrix[0][0].side != .unknown, matrix[0][0].side == matrix[1][1].side, matrix[1][1].side == matrix[2][2].side {
-            vc.showWinAlert(with: winMessage(for: matrix[0][0].side))
+            delegate.showWinAlert(with: winMessage(for: matrix[0][0].side))
             return
         }
         
         if matrix[0][2].side != .unknown, matrix[0][2].side == matrix[1][1].side, matrix[1][1].side == matrix[2][0].side {
-            vc.showWinAlert(with: winMessage(for: matrix[0][2].side))
+            delegate.showWinAlert(with: winMessage(for: matrix[0][2].side))
             return
         }
         
         if isDraw() {
-            vc.showWinAlert(with: "Draw")
+            delegate.showWinAlert(with: "Draw")
             return
         }
     }
@@ -103,11 +109,11 @@ class GameViewModel {
 }
 
 
-extension GameViewModel {
+extension GameViewModelBase {
     
     func removeSelections() {
         gameData.removeSelections()
-        vc?.reloadViews()
+        delegate?.reloadViews()
     }
     
     func getItemFor(_ indexPath: IndexPath, in resourceType: BoardType) -> Item {
@@ -123,7 +129,7 @@ extension GameViewModel {
     
     func reloadGame() {
         gameData.setupArrays()
-        vc?.reloadViews()
+        delegate?.reloadViews()
     }
     
     func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
@@ -138,7 +144,7 @@ extension GameViewModel {
             didTapOnSecondary(source: gameData.blueSource, at: indexPath)
         }
         
-        vc?.reloadViews()
+        delegate?.reloadViews()
     }
     
     func didTapToDrag(at indexPath: IndexPath, for type: BoardType) {
