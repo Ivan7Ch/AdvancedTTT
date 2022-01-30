@@ -16,6 +16,8 @@ class HowToPlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBackground()
+        
         viewModel = HowToPlayViewModel()
         
         textView.text = viewModel.getText(for: .ua)

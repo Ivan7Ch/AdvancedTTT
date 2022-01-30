@@ -35,6 +35,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBackground()
+        
         viewModel = GameViewModel(vc: self)
         
         setupCollectionViews()

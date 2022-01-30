@@ -18,6 +18,7 @@ class ConnectToRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBackground()
         
         textField.delegate = self
     }

@@ -29,6 +29,7 @@ class PlayOnlineViewController: UIViewController {
         super.viewDidLoad()
         
         title = roomNumber
+        addBackground()
         
         viewModel = PlayOnlineViewModel(vc: self)
         viewModel.playerBoardType = playerBoardType
