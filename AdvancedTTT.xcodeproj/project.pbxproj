@@ -34,6 +34,7 @@
 		CEB050A727A725D8006D29FE /* GameViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050A627A725D8006D29FE /* GameViewModelBase.swift */; };
 		CEB050AA27A728DE006D29FE /* AdvertsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050A927A728DE006D29FE /* AdvertsExtension.swift */; };
 		CEB050AC27A7293B006D29FE /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AB27A7293B006D29FE /* TableViewExtensions.swift */; };
+		CEB050AE27A72B6D006D29FE /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AD27A72B6D006D29FE /* GameViewModel.swift */; };
 		CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		CEB050A627A725D8006D29FE /* GameViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelBase.swift; sourceTree = "<group>"; };
 		CEB050A927A728DE006D29FE /* AdvertsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertsExtension.swift; sourceTree = "<group>"; };
 		CEB050AB27A7293B006D29FE /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
+		CEB050AD27A72B6D006D29FE /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToRoomViewController.swift; sourceTree = "<group>"; };
 		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 				CEB050A827A728BF006D29FE /* Extensions */,
 				5C1F59402658D1A200041373 /* GameViewController.swift */,
 				CE14397C2753F9C00014D068 /* GameData.swift */,
+				CEB050AD27A72B6D006D29FE /* GameViewModel.swift */,
 			);
 			path = "Play with friend";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				CE749FB3278853BD004F3D75 /* FirebaseHelper.swift in Sources */,
 				CEB050A527A722DE006D29FE /* BaseViewController.swift in Sources */,
 				CEB050A727A725D8006D29FE /* GameViewModelBase.swift in Sources */,
+				CEB050AE27A72B6D006D29FE /* GameViewModel.swift in Sources */,
 				CE1439722753F0C50014D068 /* Side.swift in Sources */,
 				CE1439762753F10A0014D068 /* MainCollectionViewCell.swift in Sources */,
 				CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */,

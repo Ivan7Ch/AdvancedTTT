@@ -28,14 +28,14 @@ class GameViewController: BaseBackgroundViewController {
     @IBOutlet var roundedViews: [UIView]!
     @IBOutlet var shadowViews: [UIView]!
     
-    var viewModel: GameViewModelBase!
+    var viewModel: GameViewModel!
     var interstitial: GADInterstitialAd?
     var defaultHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = GameViewModelBase(vc: self)
+        viewModel = GameViewModel(vc: self)
         
         setupViews()
     }

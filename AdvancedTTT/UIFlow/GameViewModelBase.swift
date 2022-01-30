@@ -25,9 +25,8 @@ class GameViewModelBase {
     }
     var selected: Item?
     
-    private var matrix = [[Item]]()
-    private let sideLenght = 3
-    
+    var matrix = [[Item]]()
+    let sideLenght = 3
     
     init(vc: GameViewModelDelegate) {
         self.delegate = vc
@@ -35,7 +34,7 @@ class GameViewModelBase {
         self.isBlueMove = true
     }
     
-    private func setupMatrix() {
+    func setupMatrix() {
         matrix = [[Item]]()
         for i in 0..<sideLenght {
             var arr = [Item]()
@@ -47,7 +46,7 @@ class GameViewModelBase {
         }
     }
     
-    private func winMessage(for side: Side) -> String {
+    func winMessage(for side: Side) -> String {
         switch side {
         case .blue:
             return "Blue is winner"
@@ -95,7 +94,7 @@ class GameViewModelBase {
         }
     }
     
-    private func isDraw() -> Bool {
+    func isDraw() -> Bool {
         if gameData.redSource.filter({ $0.side == .unknown }).count == 6 && gameData.blueSource.filter({ $0.side == .unknown }).count == 6 {
             return true
         }
@@ -106,10 +105,6 @@ class GameViewModelBase {
             return !gameData.canPerformMove(for: gameData.redSource)
         }
     }
-}
-
-
-extension GameViewModelBase {
     
     func removeSelections() {
         gameData.removeSelections()
@@ -167,7 +162,7 @@ extension GameViewModelBase {
         return true
     }
     
-    private func didTapOnMainSource(at indexPath: IndexPath) {
+    func didTapOnMainSource(at indexPath: IndexPath) {
         guard let selected = selected else { return }
         if selected.power == 0 { return }
         if selected.power <= gameData.mainSource[indexPath.row].power { return }
@@ -178,7 +173,7 @@ extension GameViewModelBase {
         isBlueMove.toggle()
     }
     
-    private func didTapOnSecondary(source: [Item], at indexPath: IndexPath) {
+    func didTapOnSecondary(source: [Item], at indexPath: IndexPath) {
         gameData.deselectAll()
         if selected == source[indexPath.row] {
             selected = nil
@@ -188,7 +183,7 @@ extension GameViewModelBase {
         }
     }
     
-    private func didTapToDragOnSecondary(source: [Item], at indexPath: IndexPath) {
+    func didTapToDragOnSecondary(source: [Item], at indexPath: IndexPath) {
         gameData.deselectAll()
         if selected != source[indexPath.row] {
             selected = source[indexPath.row]
