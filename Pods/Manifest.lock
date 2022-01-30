@@ -496,6 +496,7 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - Pastel (0.6.0)
+  - ProgressHUD (13.6)
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
@@ -506,6 +507,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Google-Mobile-Ads-SDK
   - Pastel
+  - ProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -531,6 +533,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Pastel
+    - ProgressHUD
     - PromisesObjC
 
 SPEC CHECKSUMS:
@@ -556,8 +559,9 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Pastel: 814f081efbe2859c37e65ee44f396e6e5be88619
+  ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: c2860962c390a53377c39df1d5f43b6b806587bf
+PODFILE CHECKSUM: f6587ad0d4b923456d657a9c48f09d5b04332739
 
 COCOAPODS: 1.11.2

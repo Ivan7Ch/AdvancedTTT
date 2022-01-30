@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ConnectToRoomViewController: UIViewController {
     
@@ -22,17 +23,23 @@ class ConnectToRoomViewController: UIViewController {
     }
     
     @IBAction func connectToRoomButtonAction() {
+        ProgressHUD.show()
         if let text = textField.text, text.count == roomNumberLenght {
             checkIfRoomExists(roomNumber: text, res: { [weak self] exists in
+                ProgressHUD.dismiss()
                 if exists {
                     self?.showVC(with: .red, roomNumber: text)
                 }
             })
+        } else {
+            ProgressHUD.dismiss()
         }
     }
     
     @IBAction func createNewRoomButtonAction() {
+        ProgressHUD.show()
         getRoomNumber(res: { [weak self] roomNumber in
+            ProgressHUD.dismiss()
             var newNumberString = "000000"
             if let roomNumber = roomNumber, let num = Int(roomNumber) {
                 newNumberString = String(format: "%06d", num + 1)
@@ -60,14 +67,17 @@ class ConnectToRoomViewController: UIViewController {
     }
     
     func checkIfRoomExists(roomNumber: String, res: @escaping (Bool) -> Void) {
+        ProgressHUD.show()
         FirebaseHelper(room: roomNumber).isRoomExists({ exists in
+            ProgressHUD.dismiss()
             res(exists)
         })
     }
     
     func getRoomNumber(res: @escaping (String?) -> Void) {
+        ProgressHUD.show()
         FirebaseHelper().getHighestRoomNumber() { roomNumber in
-            print("§ \(roomNumber)")
+            ProgressHUD.dismiss()
             res(roomNumber)
         }
     }
