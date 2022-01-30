@@ -61,6 +61,9 @@
                                         <state key="normal" title="About">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="JLg-dd-8dk" kind="show" id="E8O-fY-vOj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -651,6 +654,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojL-Je-71X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1777" y="1013"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="F73-rz-4uT">
+            <objects>
+                <viewController id="JLg-dd-8dk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4aL-nH-ZKa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dzt-Nk-etf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="2iV-uj-4Pw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssm-ll-WjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1777" y="1780"/>
         </scene>
         <!--Advanced TicTacToe-->
         <scene sceneID="Twg-c1-QOb">
