@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ProgressHUD
 
 class ConnectToRoomViewController: BaseBackgroundViewController {
     
@@ -43,17 +42,17 @@ class ConnectToRoomViewController: BaseBackgroundViewController {
     }
     
     func checkIfRoomExists(roomNumber: String, res: @escaping (Bool) -> Void) {
-        ProgressHUD.show()
+//        ProgressHUD.show()
         FirebaseHelper(room: roomNumber).isRoomExists({ exists in
-            ProgressHUD.dismiss()
+//            ProgressHUD.dismiss()
             res(exists)
         })
     }
     
     func getRoomNumber(res: @escaping (String?) -> Void) {
-        ProgressHUD.show()
+//        ProgressHUD.show()
         FirebaseHelper().getHighestRoomNumber() { roomNumber in
-            ProgressHUD.dismiss()
+//            ProgressHUD.dismiss()
             res(roomNumber)
         }
     }
@@ -65,24 +64,24 @@ extension ConnectToRoomViewController {
     
     @IBAction func connectToRoomButtonAction() {
         textField.resignFirstResponder()
-        ProgressHUD.show()
+//        ProgressHUD.show()
         if let text = textField.text, text.count == roomNumberLenght {
             checkIfRoomExists(roomNumber: text, res: { [weak self] exists in
-                ProgressHUD.dismiss()
+//                ProgressHUD.dismiss()
                 if exists {
                     self?.showVC(with: .red, roomNumber: text)
                 }
             })
         } else {
-            ProgressHUD.dismiss()
+//            ProgressHUD.dismiss()
         }
     }
     
     @IBAction func createNewRoomButtonAction() {
         textField.resignFirstResponder()
-        ProgressHUD.show()
+//        ProgressHUD.show()
         getRoomNumber(res: { [weak self] roomNumber in
-            ProgressHUD.dismiss()
+//            ProgressHUD.dismiss()
             var newNumberString = "000000"
             if let roomNumber = roomNumber, let num = Int(roomNumber) {
                 newNumberString = String(format: "%06d", num + 1)

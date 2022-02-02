@@ -6,7 +6,6 @@ target 'AdvancedTTT' do
   use_frameworks!
 
   pod 'Pastel'
-  pod 'ProgressHUD'
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
