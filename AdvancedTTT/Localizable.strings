@@ -1,13 +1,10 @@
-"0" = "Слава нації!";
-"1" = "When you connect your iPhone, iPad, or iPod touch to a computer or other device for the first time, an alert asks whether you trust the computer:
-
-Trusted computers can sync with your device, create backups, and access your device's photos, videos, contacts, and other content. These computers remain trusted unless you change which computers you trust or erase your device.
-If you choose not to trust a computer, you block its access to content on your device. You'll see the trust alert every time that you connect your device to that computer.
-
-1. Choose whether to trust a computer
-
-2. Connect your iPhone, iPad, or iPod touch to your computer or another device.
-
-3. Enter your passcode, if you have one, to unlock your iPhone, iPad, or iPod touch.
-
-4. If you want to allow your computer to access information on your device, select your device in Finder and click Trust, or if you're using iTunes, click Continue.";
+"Settings0" = "Settings";
+"Settings1" = "#trans";
+"Settings2" = "#trans";
+"Settings3" = "#trans";
+"Settings4" = "#trans";
+"Settings5" = "#trans";
+"Settings6" = "#trans";
+"Settings7" = "#trans";
+"Settings8" = "#trans";
+"Settings9" = "Налаштування";

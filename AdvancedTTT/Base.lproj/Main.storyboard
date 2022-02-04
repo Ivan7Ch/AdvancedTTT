@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="225" width="374" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                        <state key="normal" title="About">
+                                        <state key="normal" title="Settings">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -669,17 +670,49 @@
             </objects>
             <point key="canvasLocation" x="1777" y="1013"/>
         </scene>
-        <!--About-->
+        <!--Settings-->
         <scene sceneID="F73-rz-4uT">
             <objects>
-                <viewController id="JLg-dd-8dk" sceneMemberID="viewController">
+                <viewController id="JLg-dd-8dk" customClass="SettingsViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4aL-nH-ZKa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y03-Ye-Kb6">
+                                <rect key="frame" x="20" y="44" width="374" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyt-oZ-doS">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <menu key="menu" id="IoY-Td-zkK">
+                                            <children>
+                                                <command title="Item 1" id="ggG-jr-iRb"/>
+                                                <command title="Item 2" id="nSH-2M-hix"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Choose Language">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="551-9w-91n"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dzt-Nk-etf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y03-Ye-Kb6" firstAttribute="top" secondItem="dzt-Nk-etf" secondAttribute="top" id="2By-wi-TJD"/>
+                            <constraint firstItem="y03-Ye-Kb6" firstAttribute="centerX" secondItem="4aL-nH-ZKa" secondAttribute="centerX" id="TNB-sh-jIF"/>
+                            <constraint firstItem="y03-Ye-Kb6" firstAttribute="leading" secondItem="dzt-Nk-etf" secondAttribute="leading" constant="20" id="fJO-zs-CNN"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="2iV-uj-4Pw"/>
+                    <navigationItem key="navigationItem" title="Settings" id="2iV-uj-4Pw"/>
+                    <connections>
+                        <outlet property="languagesButton" destination="Xyt-oZ-doS" id="yWh-Xl-Du3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssm-ll-WjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1002,6 +1035,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

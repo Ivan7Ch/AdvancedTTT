@@ -7,15 +7,9 @@
 
 import Foundation
 
-enum SupportedLanguage: Int {
-    case ua
-    case lgbt
-}
-
 class HowToPlayViewModel {
     
     func getText(for lang: SupportedLanguage) -> String {
-        NSLocalizedString("\(lang.rawValue)", comment: "How to play!")
+        return "How to play!".localized()
     }
-    
 }

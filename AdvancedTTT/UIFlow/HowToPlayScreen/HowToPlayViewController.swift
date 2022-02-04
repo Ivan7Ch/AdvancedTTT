@@ -18,7 +18,7 @@ class HowToPlayViewController: BaseBackgroundViewController {
         
         viewModel = HowToPlayViewModel()
         
-        textView.text = viewModel.getText(for: .ua)
+        textView.text = viewModel.getText(for: .ukrainian)
     }
     
     @IBAction func didTapBackButton() {
@@ -26,7 +26,7 @@ class HowToPlayViewController: BaseBackgroundViewController {
     }
     
     @IBAction func didLanguageTap(_ button: UIButton) {
-        let lang = SupportedLanguage(rawValue: button.tag) ?? .ua
+        let lang = SupportedLanguage(rawValue: button.tag) ?? .ukrainian
         textView.text = viewModel.getText(for: lang)
     }
 }
