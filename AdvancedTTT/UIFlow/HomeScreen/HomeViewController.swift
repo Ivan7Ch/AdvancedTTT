@@ -9,18 +9,11 @@ import UIKit
 
 class HomeViewController: BaseBackgroundViewController {
     
-//    @IBOutlet weak var playWithPCButton: UIButton!
-    @IBOutlet weak var playOnlineButton: UIButton!
-    @IBOutlet weak var playWithFriendButton: UIButton!
-    @IBOutlet weak var howToPlayButton: UIButton!
-    @IBOutlet weak var aboutButton: UIButton!
+    @IBOutlet var buttons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playOnlineButton.layer.cornerRadius = Constants.generalCornerRadius
-        playWithFriendButton.layer.cornerRadius = Constants.generalCornerRadius
-        howToPlayButton.layer.cornerRadius = Constants.generalCornerRadius
-        aboutButton.layer.cornerRadius = Constants.generalCornerRadius
+        buttons.forEach({ $0.layer.cornerRadius = Constants.generalCornerRadius })
     }
 }
