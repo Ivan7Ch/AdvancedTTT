@@ -8,10 +8,6 @@
 import UIKit
 import GoogleMobileAds
 
-struct Constants {
-    static let generalCornerRadius: CGFloat = 10
-}
-
 protocol GameViewControllerDelegate {
     
     func removeSelections()

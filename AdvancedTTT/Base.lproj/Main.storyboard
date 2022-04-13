@@ -19,69 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-qY-F5T">
-                                <rect key="frame" x="20" y="311" width="374" height="345"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-YD-RwV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                        <state key="normal" title="Play with friend">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="CJF-zd-eBf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQx-ra-SjK">
-                                        <rect key="frame" x="0.0" y="72" width="374" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                        <state key="normal" title="Play Online">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="F9l-cr-OGy" kind="show" id="XFB-Si-cGW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmH-oE-fSu">
-                                        <rect key="frame" x="0.0" y="144" width="374" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                        <state key="normal" title="Play with PC">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="c37-JS-eUi" kind="show" id="tsu-Hc-v6l"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-SB-PWp">
-                                        <rect key="frame" x="0.0" y="216" width="374" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                        <state key="normal" title="How to Play">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="9Xp-DQ-N9d" kind="show" id="EeC-Ia-DqF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBN-Hm-PSe">
-                                        <rect key="frame" x="0.0" y="288" width="374" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                        <state key="normal" title="Settings">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="JLg-dd-8dk" kind="show" id="E8O-fY-vOj"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="345" id="yyU-78-KbT"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH2-fl-qK0">
                                 <rect key="frame" x="47" y="74" width="320" height="100"/>
                                 <subviews>
@@ -111,24 +48,100 @@
                                     <constraint firstItem="vjd-hd-OSm" firstAttribute="centerY" secondItem="1fw-zu-qax" secondAttribute="centerY" id="xBC-29-J6S"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0Y-E3-vSu">
+                                <rect key="frame" x="0.0" y="174" width="414" height="562"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-qY-F5T">
+                                        <rect key="frame" x="20" y="108.66666666666669" width="374" height="345"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-YD-RwV">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="Play with friend">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="CJF-zd-eBf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQx-ra-SjK">
+                                                <rect key="frame" x="0.0" y="72" width="374" height="57"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="Play Online">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="F9l-cr-OGy" kind="show" id="XFB-Si-cGW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmH-oE-fSu">
+                                                <rect key="frame" x="0.0" y="144" width="374" height="57"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="Play with PC">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="c37-JS-eUi" kind="show" id="tsu-Hc-v6l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-SB-PWp">
+                                                <rect key="frame" x="0.0" y="216" width="374" height="57"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="How to Play">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="9Xp-DQ-N9d" kind="show" id="EeC-Ia-DqF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBN-Hm-PSe">
+                                                <rect key="frame" x="0.0" y="287.99999999999994" width="374" height="57"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                                <state key="normal" title="Settings">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="JLg-dd-8dk" kind="show" id="E8O-fY-vOj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="345" id="yyU-78-KbT"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Wig-qY-F5T" secondAttribute="trailing" constant="20" id="2Xc-wP-RCf"/>
+                                    <constraint firstItem="Wig-qY-F5T" firstAttribute="centerX" secondItem="v0Y-E3-vSu" secondAttribute="centerX" id="2dv-3J-wQw"/>
+                                    <constraint firstItem="Wig-qY-F5T" firstAttribute="centerY" secondItem="v0Y-E3-vSu" secondAttribute="centerY" id="TBE-5d-bzc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ChD-2s-A6o"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ChD-2s-A6o" firstAttribute="trailing" secondItem="Wig-qY-F5T" secondAttribute="trailing" constant="20" id="3aI-Wo-KOo"/>
                             <constraint firstItem="bH2-fl-qK0" firstAttribute="top" secondItem="ChD-2s-A6o" secondAttribute="top" constant="30" id="A1Q-ah-L1Y"/>
+                            <constraint firstItem="ChD-2s-A6o" firstAttribute="bottom" secondItem="v0Y-E3-vSu" secondAttribute="bottom" id="Z1Q-V1-LHN"/>
+                            <constraint firstItem="v0Y-E3-vSu" firstAttribute="top" secondItem="bH2-fl-qK0" secondAttribute="bottom" id="fu2-KR-oei"/>
                             <constraint firstItem="bH2-fl-qK0" firstAttribute="centerX" secondItem="WMm-Eh-XFZ" secondAttribute="centerX" id="isg-jP-qQc"/>
-                            <constraint firstItem="ChD-2s-A6o" firstAttribute="bottom" secondItem="Wig-qY-F5T" secondAttribute="bottom" constant="80" id="l7C-dh-ihE"/>
-                            <constraint firstItem="Wig-qY-F5T" firstAttribute="centerX" secondItem="WMm-Eh-XFZ" secondAttribute="centerX" id="sfT-6R-zzV"/>
+                            <constraint firstItem="ChD-2s-A6o" firstAttribute="trailing" secondItem="v0Y-E3-vSu" secondAttribute="trailing" id="pRK-3u-cvg"/>
+                            <constraint firstItem="v0Y-E3-vSu" firstAttribute="leading" secondItem="ChD-2s-A6o" secondAttribute="leading" id="wlr-da-W0q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n77-aN-JIm"/>
                     <connections>
-                        <outletCollection property="buttons" destination="Zbq-YD-RwV" collectionClass="NSMutableArray" id="bzS-iX-wPn"/>
-                        <outletCollection property="buttons" destination="MQx-ra-SjK" collectionClass="NSMutableArray" id="e5D-fF-eek"/>
-                        <outletCollection property="buttons" destination="gmH-oE-fSu" collectionClass="NSMutableArray" id="afG-VW-Xee"/>
+                        <outlet property="stackViewHeightConstraint" destination="yyU-78-KbT" id="5Ct-vU-5I9"/>
                         <outletCollection property="buttons" destination="f5M-SB-PWp" collectionClass="NSMutableArray" id="GQF-2I-3bl"/>
+                        <outletCollection property="buttons" destination="gmH-oE-fSu" collectionClass="NSMutableArray" id="afG-VW-Xee"/>
+                        <outletCollection property="buttons" destination="Zbq-YD-RwV" collectionClass="NSMutableArray" id="bzS-iX-wPn"/>
                         <outletCollection property="buttons" destination="fBN-Hm-PSe" collectionClass="NSMutableArray" id="vs6-iU-h14"/>
+                        <outletCollection property="buttons" destination="MQx-ra-SjK" collectionClass="NSMutableArray" id="e5D-fF-eek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cj-Wa-aew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
