@@ -31,8 +31,11 @@ class GameViewController: BaseBackgroundViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = GameViewModel(vc: self)
+        if Constants.isSimpleVersion {
+            title = "Super XO"
+        }
         
+        viewModel = GameViewModel(vc: self)
         setupViews()
     }
     
