@@ -10,6 +10,6 @@ import UIKit
 
 class Constants {
     
-    static let isSimpleVersion = true
+    static let isSimpleVersion = false
     static let generalCornerRadius: CGFloat = 10
 }

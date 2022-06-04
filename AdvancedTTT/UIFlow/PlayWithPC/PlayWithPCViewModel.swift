@@ -19,9 +19,9 @@ class PlayWithPCViewModel: GameViewModelBase {
         case .main:
             didTapOnMainSource(at: indexPath)
             
-            let move = GameBot.makeMove(field: matrix)
-            selected = move.0
-            didTapOnMainSource(at: move.1)
+            let move = GameBot(field: matrix, mySource: gameData.redSource, opponentSource: gameData.blueSource).makeMove()
+            selected = move.item
+            didTapOnMainSource(at: move.location.matrixIndex)
         case .red:
             if isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)
@@ -34,22 +34,80 @@ class PlayWithPCViewModel: GameViewModelBase {
     }
 }
 
+struct Move {
+    var item: Item
+    var location: FieldIndex
+}
+
+
+class FieldIndex {
+    let rowIndex: Int
+    let matrixIndex: IndexPath
+    
+    init(rowIndex: Int) {
+        self.rowIndex = rowIndex
+        
+        let row = Int(rowIndex / 3)
+        let section = rowIndex % 3
+        
+        self.matrixIndex = IndexPath(row: row, section: section)
+    }
+    
+    init(matrixIndex: IndexPath) {
+        self.matrixIndex = matrixIndex
+        self.rowIndex = (matrixIndex.section * 3) + matrixIndex.row
+    }
+}
+
+
 class GameBot {
     
-    static var ind = -1
+    private var field: [[Item]]
+    private var mySource: [Item]
+    private var opponentSource: [Item]
+    private var side: Side
     
-    static func makeMove(field: [[Item]]) -> (Item, IndexPath) {
+    init(field: [[Item]], pcSide: Side = .red, mySource: [Item], opponentSource: [Item]) {
+        self.field = field
+        self.side = pcSide
+        self.mySource = mySource
+        self.opponentSource = opponentSource
+    }
+    
+    func makeMove() -> Move {
         
-        let items = [Item(power: 5, side: .red),
-                     Item(power: 6, side: .red),
-                     Item(power: 4, side: .red)]
+        for i in 0..<9 {
+            for s in mySource {
+                let move = Move(item: s, location: FieldIndex(rowIndex: i))
+                if checkIfValidMove(move: move) {
+                    return move
+                }
+            }
+        }
         
-        let index = [IndexPath(row: 4, section: 0),
-                     IndexPath(row: 2, section: 0),
-                     IndexPath(row: 6, section: 0)]
+        let randomSource = mySource.randomElement()!
+        let randomLocation = FieldIndex.init(rowIndex: Int.random(in: 0...8))
         
-        ind += 1
+        let randomMove = Move(item: randomSource, location: randomLocation)
         
-        return (items[ind], index[ind])
+        return randomMove
+    }
+    
+    
+    //TODO: - remove
+    private func flatArray(array: [[Item]]) -> [Item] {
+        
+        var result = [Item]()
+        
+        for i in array {
+            result.append(contentsOf: i)
+        }
+        
+        return result
+    }
+    
+    private func checkIfValidMove(move: Move) -> Bool {
+        let index = move.location.matrixIndex
+        return move.item.power > field[index.row][index.section].power
     }
 }
