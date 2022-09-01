@@ -41,7 +41,7 @@ class PlayOnlineViewModel: GameViewModelBase {
     override func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
         switch type {
         case .main:
-            didTapOnMainSource(at: indexPath)
+            didTapOnMainSource(at: indexPath.row)
         case .red:
             if isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)

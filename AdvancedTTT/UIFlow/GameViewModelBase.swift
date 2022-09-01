@@ -130,7 +130,7 @@ class GameViewModelBase {
     func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
         switch type {
         case .main:
-            didTapOnMainSource(at: indexPath)
+            didTapOnMainSource(at: indexPath.row)
         case .red:
             if isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)
@@ -162,12 +162,12 @@ class GameViewModelBase {
         return true
     }
     
-    func didTapOnMainSource(at indexPath: IndexPath) {
+    func didTapOnMainSource(at index: Int) {
         guard let selected = selected else { return }
         if selected.power == 0 { return }
-        if selected.power <= gameData.mainSource[indexPath.row].power { return }
-        gameData.mainSource[indexPath.row].power = selected.power
-        gameData.mainSource[indexPath.row].side = selected.side
+        if selected.power <= gameData.mainSource[index].power { return }
+        gameData.mainSource[index].power = selected.power
+        gameData.mainSource[index].side = selected.side
         self.selected = nil
         removeSelections()
         isBlueMove.toggle()

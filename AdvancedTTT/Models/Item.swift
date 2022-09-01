@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Item: Equatable {
+class Item: NSObject {
     static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.power == rhs.power && lhs.color == rhs.color && lhs.side == rhs.side
     }
@@ -31,5 +31,16 @@ class Item: Equatable {
     init(power: Int, side: Side) {
         self.power = power
         self.side = side
+    }
+    
+    override var debugDescription: String {
+        switch side {
+        case .blue:
+            return "\(power)@"
+        case .red:
+            return "\(power)#"
+        case .unknown:
+            return "OO"
+        }
     }
 }

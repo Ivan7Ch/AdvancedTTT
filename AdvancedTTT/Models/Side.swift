@@ -7,10 +7,10 @@
 
 import UIKit
 
-enum Side {
-    case blue
-    case red
-    case unknown
+enum Side: String {
+    case blue = "@"
+    case red = "#"
+    case unknown = "_"
     
     var color: UIColor {
         switch self {
