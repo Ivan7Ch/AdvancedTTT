@@ -38,6 +38,7 @@
 		CEB050AC27A7293B006D29FE /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AB27A7293B006D29FE /* TableViewExtensions.swift */; };
 		CEB050AE27A72B6D006D29FE /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AD27A72B6D006D29FE /* GameViewModel.swift */; };
 		CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */; };
+		F58852E329A68FC2009EF20E /* LocalStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		CEB050AD27A72B6D006D29FE /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToRoomViewController.swift; sourceTree = "<group>"; };
 		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
+		F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				CE749FB2278853BD004F3D75 /* FirebaseHelper.swift */,
 				CE749FB42788A116004F3D75 /* GameFieldCoder.swift */,
 				CE48B0E027ADB6F80064CB61 /* LanguageHelper.swift */,
+				F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				CE749FB52788A116004F3D75 /* GameFieldCoder.swift in Sources */,
 				5C1F59472658D1A200041373 /* AdvancedTTT.xcdatamodeld in Sources */,
 				CE749FAA278442C9004F3D75 /* HowToPlayViewController.swift in Sources */,
+				F58852E329A68FC2009EF20E /* LocalStorageHelper.swift in Sources */,
 				5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */,
 				CE48B0E127ADB6F80064CB61 /* LanguageHelper.swift in Sources */,
 				CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */,

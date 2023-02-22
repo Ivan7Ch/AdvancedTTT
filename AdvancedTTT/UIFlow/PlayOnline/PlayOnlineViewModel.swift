@@ -29,11 +29,24 @@ class PlayOnlineViewModel: GameViewModelBase {
             self?.isBlueMove = data?.isBlueMove ?? false
             self?.gameData.mainSource = field
             self?.delegate?.reloadViews()
+            
+            if let bluePlayerId = data?.bluePlayer, !bluePlayerId.isEmpty {
+                self?.bluePlayerId = bluePlayerId
+            } else {
+                self?.bluePlayerId = LocalStorageHelper.uniquePlayerID
+            }
+            
+            if let redPlayerId = data?.redPlayer, !redPlayerId.isEmpty {
+                self?.redPlayerId = redPlayerId
+            } else {
+                //need to write on firebase the id
+                self?.redPlayerId = LocalStorageHelper.uniquePlayerID
+            }
         }
     }
     
     override func reloadGame() {
-        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room))
+        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: redPlayerId))
         gameData.setupArrays()
         delegate?.reloadViews()
     }
@@ -52,7 +65,7 @@ class PlayOnlineViewModel: GameViewModelBase {
         
         if let encodedField = GameFieldCoder.encode(from: gameData.mainSource),
            encodedField.count == 9 {
-            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: isBlueMove, roomNumber: room))
+            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: isBlueMove, roomNumber: room, bluePlayer: bluePlayerId, redPlayer: redPlayerId))
         }
         
         delegate?.reloadViews()

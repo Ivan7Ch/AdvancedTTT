@@ -11,6 +11,8 @@ struct RawGameData {
     let field: String
     let isBlueMove: Bool
     let roomNumber: String
+    let bluePlayer: String?
+    let redPlayer: String?
 }
 
 class FirebaseHelper {
@@ -32,13 +34,17 @@ class FirebaseHelper {
             
             guard let field = data["f"] as? String,
                   let isBlueMove = data["b"] as? Bool,
-                  let roomNumber = data["n"] as? String else { return }
-            completion(RawGameData(field: field, isBlueMove: isBlueMove, roomNumber: roomNumber))
+                  let roomNumber = data["n"] as? String
+            else { return }
+            let bluePlayer = data["bp"] as? String
+            let redPlayer = data["rp"] as? String
+            
+            completion(RawGameData(field: field, isBlueMove: isBlueMove, roomNumber: roomNumber, bluePlayer: bluePlayer, redPlayer: redPlayer))
         }
     }
     
     func writeData(data: RawGameData) {
-        ref?.setData(["f" : data.field, "b" : data.isBlueMove, "n" : data.roomNumber])
+        ref?.setData(["f" : data.field, "b" : data.isBlueMove, "n" : data.roomNumber, "bp" : data.bluePlayer ?? "", "rp" : data.redPlayer ?? ""])
     }
     
     func isRoomExists(_ completion: @escaping ((Bool) -> Void)) {

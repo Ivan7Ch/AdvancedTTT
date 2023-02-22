@@ -43,18 +43,11 @@ enum SupportedLanguage: Int, CaseIterable {
             return "Ukrainian"
         }
     }
-    
-    static var currentLanguage: SupportedLanguage {
-        let langCode = UserDefaults.standard.integer(forKey: "lang")
-        let lang = SupportedLanguage(rawValue: langCode) ?? .english
-        
-        return lang
-    }
 }
 
 extension String {
     
     func localized() -> String {
-        return NSLocalizedString(self + "\(SupportedLanguage.currentLanguage.rawValue)", comment: "#trans")
+        return NSLocalizedString(self + "\(LocalStorageHelper.currentLanguage.rawValue)", comment: "#trans")
     }
 }

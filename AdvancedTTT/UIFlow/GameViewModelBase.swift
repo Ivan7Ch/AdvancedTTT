@@ -23,6 +23,9 @@ class GameViewModelBase {
             delegate?.setCollectionViewDisabled(isBlueMove ? .red : .blue)
         }
     }
+    var bluePlayerId: String = "" 
+    var redPlayerId: String = ""
+    
     var selected: Item?
     
     var matrix = [[Item]]()

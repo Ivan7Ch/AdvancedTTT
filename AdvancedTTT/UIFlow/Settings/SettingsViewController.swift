@@ -22,11 +22,11 @@ class SettingsViewController: UIViewController {
     private func setupMenu() {
         var actions = [UIAction]()
         
-        let currentLanguge = SupportedLanguage.currentLanguage
+        let currentLanguge = LocalStorageHelper.currentLanguage
         for i in SupportedLanguage.allCases {
             let imageName = i == currentLanguge ? "checkmark.circle.fill" : "checkmark.circle"
             let action = UIAction(title: i.name, image: UIImage(systemName: imageName), handler: { [weak self] _ in
-                UserDefaults.standard.set(i.rawValue, forKey: "lang")
+                LocalStorageHelper.setLanguage(language: i)
                 self?.localizeViews()
             })
             actions.append(action)
