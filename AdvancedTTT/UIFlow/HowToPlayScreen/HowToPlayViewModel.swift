@@ -10,6 +10,6 @@ import Foundation
 class HowToPlayViewModel {
     
     func getText(for lang: SupportedLanguage) -> String {
-        return "How to play!".localized()
+        return "howToPlay".localized()
     }
 }

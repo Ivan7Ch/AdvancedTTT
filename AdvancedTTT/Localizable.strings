@@ -1,3 +1,13 @@
+"lang0" = "eng";
+"lang1" = "spanish";
+"lang2" = "french";
+"lang3" = "arabic";
+"lang4" = "bengali";
+"lang5" = "russian";
+"lang6" = "portuguesse";
+"lang7" = "turkish";
+"lang8" = "polish";
+"lang9" = "ukr";
 "Settings0" = "Settings";
 "Settings1" = "#trans";
 "Settings2" = "#trans";
@@ -8,3 +18,15 @@
 "Settings7" = "#trans";
 "Settings8" = "#trans";
 "Settings9" = "Налаштування";
+"howToPlay0" = "1. Each player has 6 tiles, numbered from 1 to 6.\n2. Players take turns placing one of their tiles on the board.\n3. If a player places a tile on an opponent's tile and the new tile has a higher number, the opponent's tile is removed from the board and replaced with the new tile.\n4. The game is won when a player lines up three of their tiles in a row either vertically, horizontally, or diagonally.\n5. If all tiles are placed and no player has three in a row, the game is a draw.";
+
+"howToPlay1" = "1. Cada jugador tiene 6 fichas numeradas del 1 al 6.\n2. Los jugadores se turnan para colocar una de sus fichas en el tablero.\n3. Si un jugador coloca una ficha sobre la de un oponente y su número es mayor, la ficha del oponente es retirada del tablero y reemplazada por la nueva ficha.\n4. El juego se gana cuando un jugador logra alinear tres de sus fichas en línea, ya sea de forma vertical, horizontal o diagonal.\n5. Si todas las fichas son colocadas y ningún jugador ha logrado tres en línea, el juego termina en empate.";
+
+"howToPlay2" = "1. Chaque joueur dispose de 6 tuiles, numérotées de 1 à 6.\n2. Les joueurs placent à tour de rôle une de leurs tuiles sur le plateau.\n3. Si un joueur place une tuile sur la tuile d'un adversaire et que la nouvelle tuile a un nombre plus élevé, la tuile de l'adversaire est retirée du plateau et remplacée par la nouvelle tuile.\n4. Le jeu est gagné lorsqu'un joueur aligne trois de ses tuiles d'affilée verticalement, horizontalement ou en diagonale.\n5. Si toutes les tuiles sont placées et qu'aucun joueur n'en a trois d'affilée, la partie est un match nul.";
+"howToPlay3" = "";
+"howToPlay4" = "1. প্রতিটি খেলোয়াড়ের 6টি টাইল আছে, সংখ্যা 1 থেকে 6 পর্যন্ত।\n2. খেলোয়াড়রা পালাক্রমে তাদের একটি টাইলস বোর্ডে স্থাপন করে।\n3. যদি একজন খেলোয়াড় একটি প্রতিপক্ষের টাইলের উপর একটি টাইল রাখে এবং নতুন টাইলের সংখ্যা বেশি থাকে, তাহলে প্রতিপক্ষের টাইলটি বোর্ড থেকে সরানো হয় এবং নতুন টাইল দিয়ে প্রতিস্থাপিত হয়।\n4. গেমটি জয়ী হয় যখন একজন খেলোয়াড় তাদের তিনটি টাইলকে একটি সারিতে উল্লম্বভাবে, অনুভূমিকভাবে বা তির্যকভাবে সারিবদ্ধ করে।\n5. যদি সমস্ত টাইলস স্থাপন করা হয় এবং কোনো খেলোয়াড়ের পরপর তিনটি না থাকে, তাহলে খেলাটি ড্র হয়।";
+"howToPlay5" = "";
+"howToPlay6" = "1. Cada jogador tem 6 peças, numeradas de 1 a 6.\n2. Os jogadores se revezam colocando uma de suas peças no tabuleiro.\n3. Se um jogador colocar uma peça na peça do adversário e a nova peça tiver um número maior, a peça do oponente é removida do tabuleiro e substituída pela nova peça.\n4. O jogo é ganho quando um jogador alinha três de suas peças em uma linha vertical, horizontal ou diagonal.\n5. Se todas as peças forem colocadas e nenhum jogador tiver três seguidas, o jogo termina empatado.";
+"howToPlay7" = "1. Her oyuncunun 1'den 6'ya kadar numaralandırılmış 6 taşı vardır.\n2. Oyuncular sırayla taşlarından birini tahtaya yerleştirir.\n3. Bir oyuncu rakibinin taşının üzerine bir taş koyarsa ve yeni taşın daha yüksek bir numarası varsa, rakibin taşı tahtadan kaldırılır ve yeni taşla değiştirilir.\n4. Bir oyuncu taşlarından üçünü dikey, yatay veya çapraz olarak sıraladığında oyun kazanılır.\n5. Tüm taşlar yerleştirilirse ve hiçbir oyuncuda üst üste üç taş yoksa oyun berabere biter.";
+"howToPlay8" = "1. Każdy gracz ma 6 płytek ponumerowanych od 1 do 6.\n2. Gracze na zmianę umieszczają na planszy jedną ze swoich płytek.\n3. Jeśli gracz ułoży płytkę na płytce przeciwnika, a nowa płytka ma wyższy numer, płytka przeciwnika jest usuwana z planszy i zastępowana nową płytką.\n4. Gra zostaje wygrana, gdy gracz ułoży trzy swoje płytki w rzędzie pionowo, poziomo lub ukośnie.\n5. Jeśli wszystkie płytki są ułożone i żaden z graczy nie ma trzech w rzędzie, gra kończy się remisem.";
+"howToPlay9" = "1. Кожен гравець має 6 плиток, пронумерованих від 1 до 6.\n2. Гравці по черзі розміщують одну зі своїх плиток на дошці.\n3. Якщо гравець кладе плитку на плитку супротивника, а нова плитка має вищий номер, плитка супротивника видаляється з дошки та замінюється на нову плитку.\n4. Гра вважається виграною, коли гравець вибудовує три свої плитки в ряд по вертикалі, горизонталі чи діагоналі.\n5. Якщо всі плитки розміщені і в жодного з гравців немає трьох поспіль, гра вважається нічиєю.";
