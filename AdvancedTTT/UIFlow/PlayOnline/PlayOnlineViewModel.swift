@@ -42,6 +42,12 @@ class PlayOnlineViewModel: GameViewModelBase {
                 //need to write on firebase the id
                 self?.redPlayerId = LocalStorageHelper.uniquePlayerID
             }
+            
+            if data?.bluePlayer == LocalStorageHelper.uniquePlayerID {
+                self?.playerBoardType = .blue
+            } else {
+                self?.playerBoardType = .red
+            }
         }
     }
     
