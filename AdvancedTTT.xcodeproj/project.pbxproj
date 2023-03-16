@@ -38,6 +38,7 @@
 		CEB050AC27A7293B006D29FE /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AB27A7293B006D29FE /* TableViewExtensions.swift */; };
 		CEB050AE27A72B6D006D29FE /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AD27A72B6D006D29FE /* GameViewModel.swift */; };
 		CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */; };
+		F506F01B29C1DBF9006BF4C4 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */; };
 		F58852E329A68FC2009EF20E /* LocalStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		CEB050AD27A72B6D006D29FE /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToRoomViewController.swift; sourceTree = "<group>"; };
 		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
+		F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				CE14397A2753F2810014D068 /* UIViewController+Background.swift */,
+				F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */,
 				CE14397B2753F2810014D068 /* UIViewController+Background.swift in Sources */,
 				CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */,
+				F506F01B29C1DBF9006BF4C4 /* ArrayExtensions.swift in Sources */,
 				CE1432052776648A00124CEE /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

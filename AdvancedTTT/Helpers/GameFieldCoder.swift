@@ -9,8 +9,10 @@ import Foundation
 
 class GameFieldCoder {
     
+    static let allBlueItems = "bcdefg"
+    static let allRedItems = "rstuvw"
+    
     static func decode(from string: String) -> [Item]? {
-        if string.count != 9 { return nil }
         
         var result = [Item]()
         for i in string {
@@ -48,7 +50,6 @@ class GameFieldCoder {
     }
     
     static func encode(from field: [Item]) -> String? {
-        if field.count != 9 { return nil }
         
         var res = ""
         for i in field {

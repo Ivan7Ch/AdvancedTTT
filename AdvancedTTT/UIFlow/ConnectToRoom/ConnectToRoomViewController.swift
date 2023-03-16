@@ -86,7 +86,7 @@ extension ConnectToRoomViewController {
             if let roomNumber = roomNumber, let num = Int(roomNumber) {
                 newNumberString = String(format: "%06d", num + 1)
             }
-            let data = RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: newNumberString, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: nil)
+            let data = RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: newNumberString, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: nil, blueItems: GameFieldCoder.allBlueItems, redItems: GameFieldCoder.allRedItems)
             FirebaseHelper(room: newNumberString).writeData(data: data)
             self?.showMessage(number: newNumberString)
         })

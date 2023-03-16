@@ -15,6 +15,8 @@ class PlayOnlineViewModel: GameViewModelBase {
 
     var playerBoardType: BoardType
     var room = "000000"
+    var bluePlayerId: String = ""
+    var redPlayerId: String = ""
     
     init(vc: OnlineGameViewModelDelegate) {
         self.playerBoardType = Bool.random() ? .blue : .red
@@ -22,12 +24,15 @@ class PlayOnlineViewModel: GameViewModelBase {
         self.isBlueMove = vc.playerBoardType == .blue
     }
     
+    private func getAvailableItems() {
+        
+    }
+    
     func fetchField() {
         FirebaseHelper(room: room).listenField { [weak self] data in
-            guard let field = GameFieldCoder.decode(from: data?.field ?? "") else { return }
             
             self?.isBlueMove = data?.isBlueMove ?? false
-            self?.gameData.mainSource = field
+            self?.setupGameData(data: data)
             self?.delegate?.reloadViews()
             
             if let bluePlayerId = data?.bluePlayer, !bluePlayerId.isEmpty {
@@ -52,7 +57,7 @@ class PlayOnlineViewModel: GameViewModelBase {
     }
     
     override func reloadGame() {
-        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: redPlayerId))
+        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: redPlayerId, blueItems: GameFieldCoder.allBlueItems, redItems: GameFieldCoder.allRedItems))
         gameData.setupArrays()
         delegate?.reloadViews()
     }
@@ -70,10 +75,35 @@ class PlayOnlineViewModel: GameViewModelBase {
         }
         
         if let encodedField = GameFieldCoder.encode(from: gameData.mainSource),
-           encodedField.count == 9 {
-            FirebaseHelper(room: room).writeData(data: RawGameData(field: encodedField, isBlueMove: isBlueMove, roomNumber: room, bluePlayer: bluePlayerId, redPlayer: redPlayerId))
+           encodedField.count == 9, type == .main {
+            var blueItems: String? = nil
+            var redItems: String? = nil
+            
+            if !isBlueMove {
+                blueItems = gameData.blueSource.toStringFiltered()
+            } else {
+                redItems = gameData.redSource.toStringFiltered()
+            }
+            
+            FirebaseHelper(room: room)
+                .updateData(data: RawGameData(field: encodedField,
+                                    isBlueMove: isBlueMove,
+                                    roomNumber: room,
+                                    bluePlayer: bluePlayerId,
+                                    redPlayer: redPlayerId,
+                                    blueItems: blueItems,
+                                    redItems: redItems))
+            
         }
         
         delegate?.reloadViews()
+    }
+    
+    private func setupGameData(data: RawGameData?) {
+        guard let field = GameFieldCoder.decode(from: data?.field ?? "") else { return }
+        
+        gameData.mainSource = field
+        gameData.blueSource = GameFieldCoder.decode(from: data?.blueItems ?? GameFieldCoder.allBlueItems)!
+        gameData.redSource = GameFieldCoder.decode(from: data?.redItems ?? GameFieldCoder.allRedItems)!
     }
 }

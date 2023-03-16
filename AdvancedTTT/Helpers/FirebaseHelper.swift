@@ -13,6 +13,8 @@ struct RawGameData {
     let roomNumber: String
     let bluePlayer: String?
     let redPlayer: String?
+    let blueItems: String?
+    let redItems: String?
 }
 
 class FirebaseHelper {
@@ -38,13 +40,38 @@ class FirebaseHelper {
             else { return }
             let bluePlayer = data["bp"] as? String
             let redPlayer = data["rp"] as? String
+            let blueItems = data["bi"] as? String
+            let redItems = data["ri"] as? String
             
-            completion(RawGameData(field: field, isBlueMove: isBlueMove, roomNumber: roomNumber, bluePlayer: bluePlayer, redPlayer: redPlayer))
+            completion(RawGameData(field: field, isBlueMove: isBlueMove, roomNumber: roomNumber, bluePlayer: bluePlayer, redPlayer: redPlayer, blueItems: blueItems, redItems: redItems))
         }
     }
     
     func writeData(data: RawGameData) {
-        ref?.setData(["f" : data.field, "b" : data.isBlueMove, "n" : data.roomNumber, "bp" : data.bluePlayer ?? "", "rp" : data.redPlayer ?? ""])
+        ref?.setData(["f" : data.field,
+                         "b" : data.isBlueMove,
+                         "n" : data.roomNumber,
+                         "bp" : data.bluePlayer ?? "",
+                         "rp" : data.redPlayer ?? "",
+                         "bi" : data.blueItems ?? "",
+                         "ri" : data.redItems ?? ""])
+    }
+    
+    func updateData(data: RawGameData) {
+        var dict = ["f" : data.field,
+                    "b" : data.isBlueMove,
+                    "n" : data.roomNumber,
+                    "bp" : data.bluePlayer ?? "",
+                    "rp" : data.redPlayer ?? ""] as [String : Any]
+        if let bi = data.blueItems {
+            dict["bi"] = bi
+        }
+        
+        if let ri = data.redItems {
+            dict["ri"] = ri
+        }
+        
+        ref?.updateData(dict)
     }
     
     func isRoomExists(_ completion: @escaping ((Bool) -> Void)) {
