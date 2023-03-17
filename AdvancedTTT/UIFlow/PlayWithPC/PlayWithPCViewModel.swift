@@ -1,32 +1,32 @@
 //
-//  PlayOnlineViewModel.swift
+//  PlayWithPCViewModel.swift
 //  AdvancedTTT
 //
-//  Created by User on 08.01.2022.
+//  Created by Ivan Chernetskiy on 17.03.2023.
 //
 
 import Foundation
 
-protocol OnlineGameViewModelDelegate: GameViewModelDelegate {
+protocol PlayWithPCViewModelDelegate: GameViewModelDelegate {
     var playerBoardType: BoardType! { get set }
 }
 
-class PlayOnlineViewModel: SinglePlayerViewModel {
+class PlayWithPCViewModel: GameViewModelBase {
 
+    var playerBoardType: BoardType
     var room = "000000"
     var bluePlayerId: String = ""
     var redPlayerId: String = ""
     
-    override init(vc: OnlineGameViewModelDelegate) {
-        super.init(vc: (vc as GameViewModelDelegate) as! OnlineGameViewModelDelegate)
+    init(vc: OnlineGameViewModelDelegate) {
+        self.playerBoardType = Bool.random() ? .blue : .red
+        super.init(vc: (vc as GameViewModelDelegate))
+        self.isBlueMove = vc.playerBoardType == .blue
     }
     
-    override func reloadGame() {
-        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: redPlayerId, blueItems: GameFieldCoder.allBlueItems, redItems: GameFieldCoder.allRedItems))
-        gameData.setupArrays()
-        delegate?.reloadViews()
+    private func getAvailableItems() {
+        
     }
-    
     
     func fetchField() {
         FirebaseHelper(room: room).listenField { [weak self] data in
@@ -56,8 +56,23 @@ class PlayOnlineViewModel: SinglePlayerViewModel {
         }
     }
     
+    override func reloadGame() {
+        FirebaseHelper(room: room).writeData(data: RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: room, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: redPlayerId, blueItems: GameFieldCoder.allBlueItems, redItems: GameFieldCoder.allRedItems))
+        gameData.setupArrays()
+        delegate?.reloadViews()
+    }
+    
     override func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
-        super.didTapAt(indexPath, for: type)
+        switch type {
+        case .main:
+            didTapOnMainSource(at: indexPath)
+        case .red:
+            if isBlueMove { break }
+            didTapOnSecondary(source: gameData.redSource, at: indexPath)
+        case .blue:
+            if !isBlueMove { break }
+            didTapOnSecondary(source: gameData.blueSource, at: indexPath)
+        }
         
         if let encodedField = GameFieldCoder.encode(from: gameData.mainSource),
            encodedField.count == 9, type == .main {
@@ -80,5 +95,15 @@ class PlayOnlineViewModel: SinglePlayerViewModel {
                                     redItems: redItems))
             
         }
+        
+        delegate?.reloadViews()
+    }
+    
+    private func setupGameData(data: RawGameData?) {
+        guard let field = GameFieldCoder.decode(from: data?.field ?? "") else { return }
+        
+        gameData.mainSource = field
+        gameData.blueSource = GameFieldCoder.decode(from: data?.blueItems ?? GameFieldCoder.allBlueItems)!
+        gameData.redSource = GameFieldCoder.decode(from: data?.redItems ?? GameFieldCoder.allRedItems)!
     }
 }

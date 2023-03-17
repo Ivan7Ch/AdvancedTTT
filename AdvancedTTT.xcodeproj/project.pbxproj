@@ -40,6 +40,10 @@
 		CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */; };
 		F506F01B29C1DBF9006BF4C4 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */; };
 		F58852E329A68FC2009EF20E /* LocalStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */; };
+		F589C27B29C4E01D00A2E09B /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C27A29C4E01D00A2E09B /* PlayViewController.swift */; };
+		F589C27D29C4E0C600A2E09B /* PlayWithPCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C27C29C4E0C600A2E09B /* PlayWithPCViewModel.swift */; };
+		F589C28029C4FB2200A2E09B /* SinglePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C27F29C4FB2200A2E09B /* SinglePlayerViewController.swift */; };
+		F589C28229C4FD4300A2E09B /* SinglePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C28129C4FD4300A2E09B /* SinglePlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,10 @@
 		D4D209E0AC4AF1ACB7C48924 /* Pods-AdvancedTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedTTT.debug.xcconfig"; path = "Target Support Files/Pods-AdvancedTTT/Pods-AdvancedTTT.debug.xcconfig"; sourceTree = "<group>"; };
 		F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageHelper.swift; sourceTree = "<group>"; };
+		F589C27A29C4E01D00A2E09B /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		F589C27C29C4E0C600A2E09B /* PlayWithPCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithPCViewModel.swift; sourceTree = "<group>"; };
+		F589C27F29C4FB2200A2E09B /* SinglePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewController.swift; sourceTree = "<group>"; };
+		F589C28129C4FD4300A2E09B /* SinglePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,14 +215,15 @@
 		CE749FA527844261004F3D75 /* UIFlow */ = {
 			isa = PBXGroup;
 			children = (
-				CE48B0E227ADB9930064CB61 /* Settings */,
-				CEB2C01B2789ADC700A3EB43 /* ConnectToRoom */,
-				CEB050A327A722CB006D29FE /* BaseViewController */,
-				CE749FA62784427E004F3D75 /* HowToPlayScreen */,
-				CE14396F2753F0A80014D068 /* Play with friend */,
-				CE749FB62788F1D5004F3D75 /* PlayOnline */,
+				F589C27E29C4FAF900A2E09B /* SinglePlayerViewController */,
 				CE1432032776645C00124CEE /* HomeScreen */,
-				CEB050A627A725D8006D29FE /* GameViewModelBase.swift */,
+				CEB050A327A722CB006D29FE /* BaseViewController */,
+				F589C27929C4DF0100A2E09B /* PlayWithPC */,
+				CE14396F2753F0A80014D068 /* Play with friend */,
+				CEB2C01B2789ADC700A3EB43 /* ConnectToRoom */,
+				CE749FB62788F1D5004F3D75 /* PlayOnline */,
+				CE749FA62784427E004F3D75 /* HowToPlayScreen */,
+				CE48B0E227ADB9930064CB61 /* Settings */,
 			);
 			path = UIFlow;
 			sourceTree = "<group>";
@@ -252,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB050A427A722DE006D29FE /* BaseViewController.swift */,
+				CEB050A627A725D8006D29FE /* GameViewModelBase.swift */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -271,6 +281,24 @@
 				CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */,
 			);
 			path = ConnectToRoom;
+			sourceTree = "<group>";
+		};
+		F589C27929C4DF0100A2E09B /* PlayWithPC */ = {
+			isa = PBXGroup;
+			children = (
+				F589C27A29C4E01D00A2E09B /* PlayViewController.swift */,
+				F589C27C29C4E0C600A2E09B /* PlayWithPCViewModel.swift */,
+			);
+			path = PlayWithPC;
+			sourceTree = "<group>";
+		};
+		F589C27E29C4FAF900A2E09B /* SinglePlayerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F589C27F29C4FB2200A2E09B /* SinglePlayerViewController.swift */,
+				F589C28129C4FD4300A2E09B /* SinglePlayerViewModel.swift */,
+			);
+			path = SinglePlayerViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +419,7 @@
 			files = (
 				CEB050AC27A7293B006D29FE /* TableViewExtensions.swift in Sources */,
 				5C1F59412658D1A200041373 /* GameViewController.swift in Sources */,
+				F589C28229C4FD4300A2E09B /* SinglePlayerViewModel.swift in Sources */,
 				CEB050AA27A728DE006D29FE /* AdvertsExtension.swift in Sources */,
 				CE14397F2753FBFE0014D068 /* BoardType.swift in Sources */,
 				CE749FA8278442BD004F3D75 /* HowToPlayViewModel.swift in Sources */,
@@ -401,6 +430,8 @@
 				CEB050A727A725D8006D29FE /* GameViewModelBase.swift in Sources */,
 				CEB050AE27A72B6D006D29FE /* GameViewModel.swift in Sources */,
 				CE1439722753F0C50014D068 /* Side.swift in Sources */,
+				F589C27B29C4E01D00A2E09B /* PlayViewController.swift in Sources */,
+				F589C27D29C4E0C600A2E09B /* PlayWithPCViewModel.swift in Sources */,
 				CE1439762753F10A0014D068 /* MainCollectionViewCell.swift in Sources */,
 				CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */,
 				5C1F593D2658D1A200041373 /* AppDelegate.swift in Sources */,
@@ -411,6 +442,7 @@
 				F58852E329A68FC2009EF20E /* LocalStorageHelper.swift in Sources */,
 				5C1F593F2658D1A200041373 /* SceneDelegate.swift in Sources */,
 				CE48B0E127ADB6F80064CB61 /* LanguageHelper.swift in Sources */,
+				F589C28029C4FB2200A2E09B /* SinglePlayerViewController.swift in Sources */,
 				CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */,
 				CE14397B2753F2810014D068 /* UIViewController+Background.swift in Sources */,
 				CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */,
