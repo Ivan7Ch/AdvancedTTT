@@ -69,7 +69,7 @@ class GameData {
         }
     }
     
-    func canPerformMove(for array: [Item]) -> Bool {
+    func isAnyPossibleMoves(for array: [Item]) -> Bool {
         for item in array {
             if mainSource.contains(where: { item.power > $0.power }) {
                 return true
@@ -78,4 +78,91 @@ class GameData {
         
         return false
     }
+    
+    func allPossibleMovesFor(side: Side) -> [Move] {
+        var moves = [Move]()
+        var source = [Item]()
+        
+        switch side {
+        case .blue:
+            source = blueSource
+        case .red:
+            source = redSource
+        case .unknown:
+            return []
+        }
+        
+        for i in source {
+            for j in mainSource {
+                if i.power > j.power {
+                    if let index = mainSource.firstIndex(of: j) {
+                        moves.append(Move(item: i, index: index))
+                    }
+                }
+            }
+        }
+        
+        return moves
+    }
+    
+    func minimax(side: Side, depth: Int, maximizingPlayer: Bool) -> Int {
+        let possibleMoves = allPossibleMovesFor(side: side)
+        
+        if depth == 0 || possibleMoves.count == 0 {
+            return evaluate()
+        }
+        
+        if maximizingPlayer {
+            var bestValue = Int.min
+            
+            for move in possibleMoves {
+                let item = move.item
+                let index = move.index
+                
+                // Apply the move
+                let previousItem = mainSource[index]
+                mainSource[index] = item
+                
+                // Recurse
+                let value = minimax(side: side.opposite(), depth: depth - 1, maximizingPlayer: false)
+                
+                // Undo the move
+                mainSource[index] = previousItem
+                
+                bestValue = max(bestValue, value)
+            }
+            
+            return bestValue
+        } else {
+            var bestValue = Int.max
+            
+            for move in possibleMoves {
+                let item = move.item
+                let index = move.index
+                
+                // Apply the move
+                let previousItem = mainSource[index]
+                mainSource[index] = item
+                
+                // Recurse
+                let value = minimax(side: side.opposite(), depth: depth - 1, maximizingPlayer: true)
+                
+                // Undo the move
+                mainSource[index] = previousItem
+                
+                bestValue = min(bestValue, value)
+            }
+            
+            return bestValue
+        }
+    }
+
+    private func evaluate() -> Int {
+        // Evaluate the current state of the game and return a score
+        // This is a simple evaluation function that returns the difference between the number of red tiles and blue tiles
+        let redCount = mainSource.filter({ $0.side == .red }).count
+        let blueCount = mainSource.filter({ $0.side == .blue }).count
+        return redCount - blueCount
+    }
+    
 }

@@ -101,9 +101,9 @@ class GameViewModelBase {
         }
         
         if isBlueMove {
-            return !gameData.canPerformMove(for: gameData.blueSource)
+            return !gameData.isAnyPossibleMoves(for: gameData.blueSource)
         } else {
-            return !gameData.canPerformMove(for: gameData.redSource)
+            return !gameData.isAnyPossibleMoves(for: gameData.redSource)
         }
     }
     

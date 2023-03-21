@@ -40,7 +40,63 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
     }
     
     private func makeMove() {
-        didTapAt(IndexPath(row: 1, section: 0), for: .red)
-        didTapAt(IndexPath(row: 7, section: 0), for: .main)
+        
+        // Choose the current player
+        let currentPlayer: Side = .red
+
+        // Generate a list of all possible moves for the current player
+        let possibleMoves = gameData.allPossibleMovesFor(side: currentPlayer)
+
+        // Choose the depth of the search
+        let searchDepth = 3
+
+        // Iterate over each move and call minimax on it
+        var moveScores = [Int]()
+        for move in possibleMoves {
+            let item = move.item
+            let index = move.index
+            
+            // Apply the move
+            let previousItem = gameData.mainSource[index]
+            gameData.mainSource[index] = item
+            
+            // Call minimax on the new game state
+            let score = gameData.minimax(side: currentPlayer.opposite(), depth: searchDepth - 1, maximizingPlayer: true)
+            moveScores.append(score)
+            
+            // Undo the move
+            gameData.mainSource[index] = previousItem
+        }
+
+        // Find the best move
+        var bestMoveIndex = 0
+        if currentPlayer == .red {
+            var bestScore = Int.min
+            for i in 0..<moveScores.count {
+                if moveScores[i] > bestScore {
+                    bestScore = moveScores[i]
+                    bestMoveIndex = i
+                }
+            }
+        } else {
+            var bestScore = Int.max
+            for i in 0..<moveScores.count {
+                if moveScores[i] < bestScore {
+                    bestScore = moveScores[i]
+                    bestMoveIndex = i
+                }
+            }
+        }
+
+        // Apply the best move
+        let bestMove = possibleMoves[bestMoveIndex]
+        didTapAt(IndexPath(row: bestMove.item.power - 1, section: 0), for: .red)
+        didTapAt(IndexPath(row: bestMove.index, section: 0), for: .main)
     }
+}
+
+
+struct Move {
+    let item: Item
+    let index: Int
 }
