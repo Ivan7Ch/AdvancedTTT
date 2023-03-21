@@ -11,6 +11,11 @@ class PlayViewController: SinglePlayerViewController {
     
     
     override func viewDidLoad() {
+        playerBoardType = .blue
+        
+        viewModel = PlayWithPCViewModel(vc: self)
+        viewModel.playerBoardType = playerBoardType
+        
         super.viewDidLoad()
         
         

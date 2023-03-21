@@ -1038,10 +1038,10 @@
             </objects>
             <point key="canvasLocation" x="-465.21739130434787" y="150.81521739130437"/>
         </scene>
-        <!--Play Online View Controller-->
+        <!--Play View Controller-->
         <scene sceneID="SNa-fI-uEB">
             <objects>
-                <viewController storyboardIdentifier="PlayWithPC" modalPresentationStyle="fullScreen" id="w81-JZ-lSJ" customClass="PlayOnlineViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayWithPC" modalPresentationStyle="fullScreen" id="w81-JZ-lSJ" customClass="PlayViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kYm-kh-g23">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -20,7 +20,7 @@ class PlayOnlineViewController: SinglePlayerViewController {
         
         viewModel = PlayOnlineViewModel(vc: self)
         viewModel.playerBoardType = playerBoardType
-        viewModel.room = roomNumber
+        (viewModel as! PlayOnlineViewModel).room = roomNumber
         
     }
     
@@ -28,6 +28,6 @@ class PlayOnlineViewController: SinglePlayerViewController {
         super.viewDidAppear(animated)
         
         reloadViews()
-        (viewModel!).fetchField()
+        (viewModel as! PlayOnlineViewModel).fetchField()
     }
 }
