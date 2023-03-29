@@ -94,15 +94,13 @@ class GameData {
         
         for i in source {
             for j in mainSource {
-                if i.power > j.power {
-                    if let index = mainSource.firstIndex(of: j) {
-                        moves.append(Move(item: i, index: index))
-                    }
+                if i.power > j.power, let index = mainSource.firstIndex(of: j) {
+                    moves.append(Move(item: i, index: index))
                 }
             }
         }
         
-        return moves
+        return moves.unique()
     }
     
     func minimax(side: Side, depth: Int, maximizingPlayer: Bool) -> Int {

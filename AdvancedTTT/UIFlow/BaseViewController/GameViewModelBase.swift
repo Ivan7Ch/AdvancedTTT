@@ -18,6 +18,8 @@ class GameViewModelBase {
     var delegate: GameViewModelDelegate?
     let gameData: GameData
     
+    var isFinishedGame = false
+    
     var isBlueMove: Bool {
         didSet {
             delegate?.setCollectionViewDisabled(isBlueMove ? .red : .blue)
@@ -67,6 +69,7 @@ class GameViewModelBase {
             if matrix[j][0].side == .unknown { continue }
             if matrix[j][0].side == matrix[j][1].side, matrix[j][1].side == matrix[j][2].side {
                 delegate.showWinAlert(with: winMessage(for: matrix[j][0].side))
+                isFinishedGame = true
                 return
             }
         }
@@ -75,22 +78,26 @@ class GameViewModelBase {
             if matrix[0][j].side == .unknown { continue }
             if matrix[0][j].side == matrix[1][j].side, matrix[1][j].side == matrix[2][j].side {
                 delegate.showWinAlert(with: winMessage(for: matrix[0][j].side))
+                isFinishedGame = true
                 return
             }
         }
         
         if matrix[0][0].side != .unknown, matrix[0][0].side == matrix[1][1].side, matrix[1][1].side == matrix[2][2].side {
             delegate.showWinAlert(with: winMessage(for: matrix[0][0].side))
+            isFinishedGame = true
             return
         }
         
         if matrix[0][2].side != .unknown, matrix[0][2].side == matrix[1][1].side, matrix[1][1].side == matrix[2][0].side {
             delegate.showWinAlert(with: winMessage(for: matrix[0][2].side))
+            isFinishedGame = true
             return
         }
         
         if isDraw() {
             delegate.showWinAlert(with: "Draw")
+            isFinishedGame = true
             return
         }
     }
@@ -125,6 +132,7 @@ class GameViewModelBase {
     
     func reloadGame() {
         gameData.setupArrays()
+        isFinishedGame = false
         delegate?.reloadViews()
     }
     

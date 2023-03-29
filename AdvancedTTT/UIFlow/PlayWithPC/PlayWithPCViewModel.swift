@@ -17,17 +17,18 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
         super.init(vc: vc)
     }
     
-    private func getAvailableItems() {
-        
-    }
-    
     override func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
         switch type {
         case .main:
             didTapOnMainSource(at: indexPath)
             if !isBlueMove {
-                makeMove()
+                delegate?.reloadViews()
+                check()
+                if !isFinishedGame {
+                    makeMove()
+                }
             }
+            return
         case .red:
             if isBlueMove { break }
             didTapOnSecondary(source: gameData.redSource, at: indexPath)
@@ -37,9 +38,17 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
         }
         
         delegate?.reloadViews()
+        check()
+    }
+    
+    override func reloadGame() {
+        super.reloadGame()
+        isBlueMove = true
     }
     
     private func makeMove() {
+        let start = CFAbsoluteTimeGetCurrent()
+
         
         // Choose the current player
         let currentPlayer: Side = .red
@@ -48,7 +57,7 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
         let possibleMoves = gameData.allPossibleMovesFor(side: currentPlayer)
 
         // Choose the depth of the search
-        let searchDepth = 3
+        let searchDepth = 4
 
         // Iterate over each move and call minimax on it
         var moveScores = [Int]()
@@ -88,6 +97,7 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
             }
         }
 
+        print("± Took \(CFAbsoluteTimeGetCurrent() - start) seconds")
         // Apply the best move
         let bestMove = possibleMoves[bestMoveIndex]
         didTapAt(IndexPath(row: bestMove.item.power - 1, section: 0), for: .red)
@@ -96,7 +106,7 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
 }
 
 
-struct Move {
+struct Move: Hashable {
     let item: Item
     let index: Int
 }

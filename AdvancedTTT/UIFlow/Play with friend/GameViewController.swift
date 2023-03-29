@@ -171,7 +171,6 @@ extension GameViewController: GameViewModelDelegate {
         mainCollectionView.reloadData()
         redCollectionView.reloadData()
         blueCollectionView.reloadData()
-        viewModel.check()
     }
     
     func setCollectionViewDisabled(_ boardType: BoardType) {

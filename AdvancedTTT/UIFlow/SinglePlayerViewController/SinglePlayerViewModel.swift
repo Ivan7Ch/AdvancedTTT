@@ -17,11 +17,6 @@ class SinglePlayerViewModel: GameViewModelBase {
         self.isBlueMove = vc.playerBoardType == .blue
     }
     
-    override func reloadGame() {
-        gameData.setupArrays()
-        delegate?.reloadViews()
-    }
-    
     override func didTapAt(_ indexPath: IndexPath, for type: BoardType) {
         switch type {
         case .main:

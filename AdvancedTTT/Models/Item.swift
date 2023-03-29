@@ -7,9 +7,15 @@
 
 import UIKit
 
-class Item: Equatable {
+class Item: Equatable, Hashable {
+    
     static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.power == rhs.power && lhs.color == rhs.color && lhs.side == rhs.side
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(power)
+        hasher.combine(side)
     }
     
     var color: UIColor {
