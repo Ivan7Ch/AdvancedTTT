@@ -6,24 +6,24 @@
 //
 
 import UIKit
-import Pastel
+//import Pastel
 
 class BaseBackgroundViewController: UIViewController {
-    
-    var pastelView: PastelView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        pastelView = pastelView()
-        view.insertSubview(pastelView, at: 0)
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        pastelView.removeFromSuperview()
-        pastelView = pastelView()
-        view.insertSubview(pastelView, at: 0)
-    }
+//    
+//    var pastelView: PastelView!
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        pastelView = pastelView()
+//        view.insertSubview(pastelView, at: 0)
+//    }
+//    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        
+//        pastelView.removeFromSuperview()
+//        pastelView = pastelView()
+//        view.insertSubview(pastelView, at: 0)
+//    }
 }
