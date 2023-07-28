@@ -17,7 +17,7 @@ protocol GameViewControllerDelegate {
     func removeSelections()
 }
 
-class GameViewController: BaseBackgroundViewController {
+class GameViewController: UIViewController {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var redCollectionView: UICollectionView!

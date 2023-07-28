@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
-class SinglePlayerViewController: BaseBackgroundViewController, OnlineGameViewModelDelegate {
+class SinglePlayerViewController: UIViewController, OnlineGameViewModelDelegate {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var blueCollectionView: UICollectionView!

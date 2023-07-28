@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConnectToRoomViewController: BaseBackgroundViewController {
+class ConnectToRoomViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var connectToRoomButton: UIButton!

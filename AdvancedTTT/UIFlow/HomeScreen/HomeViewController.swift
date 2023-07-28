@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: BaseBackgroundViewController {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var playWithPCButton: UIButton!
     @IBOutlet weak var playOnlineButton: UIButton!

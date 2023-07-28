@@ -18,7 +18,6 @@
 		CE1439722753F0C50014D068 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1439712753F0C50014D068 /* Side.swift */; };
 		CE1439742753F0E00014D068 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1439732753F0E00014D068 /* Item.swift */; };
 		CE1439762753F10A0014D068 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1439752753F10A0014D068 /* MainCollectionViewCell.swift */; };
-		CE14397B2753F2810014D068 /* UIViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14397A2753F2810014D068 /* UIViewController+Background.swift */; };
 		CE14397D2753F9C00014D068 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14397C2753F9C00014D068 /* GameData.swift */; };
 		CE14397F2753FBFE0014D068 /* BoardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14397E2753FBFE0014D068 /* BoardType.swift */; };
 		CE48B0E127ADB6F80064CB61 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48B0E027ADB6F80064CB61 /* LanguageHelper.swift */; };
@@ -31,7 +30,6 @@
 		CE749FB52788A116004F3D75 /* GameFieldCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB42788A116004F3D75 /* GameFieldCoder.swift */; };
 		CE749FB82788F1FE004F3D75 /* PlayOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */; };
 		CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */; };
-		CEB050A527A722DE006D29FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050A427A722DE006D29FE /* BaseViewController.swift */; };
 		CEB050A727A725D8006D29FE /* GameViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050A627A725D8006D29FE /* GameViewModelBase.swift */; };
 		CEB050AA27A728DE006D29FE /* AdvertsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050A927A728DE006D29FE /* AdvertsExtension.swift */; };
 		CEB050AC27A7293B006D29FE /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB050AB27A7293B006D29FE /* TableViewExtensions.swift */; };
@@ -76,7 +74,6 @@
 		CE1439712753F0C50014D068 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		CE1439732753F0E00014D068 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CE1439752753F10A0014D068 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
-		CE14397A2753F2810014D068 /* UIViewController+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Background.swift"; sourceTree = "<group>"; };
 		CE14397C2753F9C00014D068 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		CE14397E2753FBFE0014D068 /* BoardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardType.swift; sourceTree = "<group>"; };
 		CE48B0E027ADB6F80064CB61 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
@@ -89,7 +86,6 @@
 		CE749FB42788A116004F3D75 /* GameFieldCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldCoder.swift; sourceTree = "<group>"; };
 		CE749FB72788F1FE004F3D75 /* PlayOnlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayOnlineViewController.swift; sourceTree = "<group>"; };
 		CE749FB92788F22D004F3D75 /* PlayOnlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayOnlineViewModel.swift; sourceTree = "<group>"; };
-		CEB050A427A722DE006D29FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CEB050A627A725D8006D29FE /* GameViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelBase.swift; sourceTree = "<group>"; };
 		CEB050A927A728DE006D29FE /* AdvertsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertsExtension.swift; sourceTree = "<group>"; };
 		CEB050AB27A7293B006D29FE /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
@@ -200,7 +196,6 @@
 		CE1439792753F26F0014D068 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CE14397A2753F2810014D068 /* UIViewController+Background.swift */,
 				F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
@@ -270,7 +265,6 @@
 		CEB050A327A722CB006D29FE /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CEB050A427A722DE006D29FE /* BaseViewController.swift */,
 				CEB050A627A725D8006D29FE /* GameViewModelBase.swift */,
 			);
 			path = BaseViewController;
@@ -414,7 +408,6 @@
 				CE749FA8278442BD004F3D75 /* HowToPlayViewModel.swift in Sources */,
 				CE14397D2753F9C00014D068 /* GameData.swift in Sources */,
 				CE749FB3278853BD004F3D75 /* FirebaseHelper.swift in Sources */,
-				CEB050A527A722DE006D29FE /* BaseViewController.swift in Sources */,
 				CE48B0E427ADB9A30064CB61 /* SettingsViewController.swift in Sources */,
 				CEB050A727A725D8006D29FE /* GameViewModelBase.swift in Sources */,
 				CEB050AE27A72B6D006D29FE /* GameViewModel.swift in Sources */,
@@ -433,7 +426,6 @@
 				CE48B0E127ADB6F80064CB61 /* LanguageHelper.swift in Sources */,
 				F589C28029C4FB2200A2E09B /* SinglePlayerViewController.swift in Sources */,
 				CE749FBA2788F22D004F3D75 /* PlayOnlineViewModel.swift in Sources */,
-				CE14397B2753F2810014D068 /* UIViewController+Background.swift in Sources */,
 				CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */,
 				F506F01B29C1DBF9006BF4C4 /* ArrayExtensions.swift in Sources */,
 				CE1432052776648A00124CEE /* HomeViewController.swift in Sources */,
