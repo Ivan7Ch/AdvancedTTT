@@ -82,42 +82,20 @@
                                     <constraint firstAttribute="height" constant="360" id="yyU-78-KbT"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH2-fl-qK0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QTW-tH-pnm">
                                 <rect key="frame" x="47" y="94" width="320" height="100"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="withoutBG" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-zu-qax">
-                                        <rect key="frame" x="220" y="10" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="nTw-ec-uaH"/>
-                                            <constraint firstAttribute="width" constant="80" id="yMf-KM-agd"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Super XO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjd-hd-OSm">
-                                        <rect key="frame" x="20" y="26" width="170" height="48"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="vjd-hd-OSm" firstAttribute="centerX" secondItem="bH2-fl-qK0" secondAttribute="centerX" constant="-55" id="5L5-uG-Zec"/>
-                                    <constraint firstAttribute="width" constant="320" id="9YD-KI-caN"/>
-                                    <constraint firstItem="vjd-hd-OSm" firstAttribute="centerY" secondItem="bH2-fl-qK0" secondAttribute="centerY" id="DvB-3I-kDY"/>
-                                    <constraint firstAttribute="bottom" secondItem="1fw-zu-qax" secondAttribute="bottom" constant="10" id="Ku9-hA-l2r"/>
-                                    <constraint firstItem="vjd-hd-OSm" firstAttribute="leading" secondItem="bH2-fl-qK0" secondAttribute="leading" constant="20" id="QHr-TK-a8n"/>
-                                    <constraint firstItem="1fw-zu-qax" firstAttribute="leading" secondItem="vjd-hd-OSm" secondAttribute="trailing" constant="30" id="Uzb-Ae-cys"/>
-                                    <constraint firstAttribute="trailing" secondItem="1fw-zu-qax" secondAttribute="trailing" constant="20" id="lgf-C6-Vqd"/>
-                                    <constraint firstItem="vjd-hd-OSm" firstAttribute="centerY" secondItem="1fw-zu-qax" secondAttribute="centerY" id="xBC-29-J6S"/>
+                                    <constraint firstAttribute="height" constant="100" id="bCf-SR-cC7"/>
+                                    <constraint firstAttribute="width" constant="320" id="nv5-E0-EVy"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ChD-2s-A6o"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ChD-2s-A6o" firstAttribute="trailing" secondItem="Wig-qY-F5T" secondAttribute="trailing" constant="20" id="3aI-Wo-KOo"/>
-                            <constraint firstItem="bH2-fl-qK0" firstAttribute="top" secondItem="ChD-2s-A6o" secondAttribute="top" constant="30" id="A1Q-ah-L1Y"/>
-                            <constraint firstItem="bH2-fl-qK0" firstAttribute="centerX" secondItem="WMm-Eh-XFZ" secondAttribute="centerX" id="isg-jP-qQc"/>
+                            <constraint firstItem="QTW-tH-pnm" firstAttribute="top" secondItem="ChD-2s-A6o" secondAttribute="top" constant="30" id="AE4-zf-sbA"/>
+                            <constraint firstItem="QTW-tH-pnm" firstAttribute="centerX" secondItem="WMm-Eh-XFZ" secondAttribute="centerX" id="Q4p-VB-vBO"/>
                             <constraint firstItem="ChD-2s-A6o" firstAttribute="bottom" secondItem="Wig-qY-F5T" secondAttribute="bottom" constant="100" id="l7C-dh-ihE"/>
                             <constraint firstItem="Wig-qY-F5T" firstAttribute="centerX" secondItem="WMm-Eh-XFZ" secondAttribute="centerX" id="sfT-6R-zzV"/>
                         </constraints>
@@ -126,6 +104,7 @@
                     <connections>
                         <outlet property="aboutButton" destination="fBN-Hm-PSe" id="kK7-Tv-byO"/>
                         <outlet property="howToPlayButton" destination="f5M-SB-PWp" id="aTL-OJ-Kd4"/>
+                        <outlet property="logoImageView" destination="QTW-tH-pnm" id="bd0-Lw-Tw9"/>
                         <outlet property="playOnlineButton" destination="MQx-ra-SjK" id="UBV-D8-57r"/>
                         <outlet property="playWithFriendButton" destination="Zbq-YD-RwV" id="pdM-xK-8sM"/>
                         <outlet property="playWithPCButton" destination="7hS-lE-u8q" id="FHm-y0-1i5"/>
@@ -1215,7 +1194,6 @@
     </scenes>
     <resources>
         <image name="1" width="575" height="575"/>
-        <image name="withoutBG" width="3464" height="3464"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
