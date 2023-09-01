@@ -37,6 +37,8 @@
 		CEB2C01E2789AE0600A3EB43 /* ConnectToRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */; };
 		F506F01B29C1DBF9006BF4C4 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */; };
 		F50DE8132A8D00CA008D37D7 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DE8122A8D00CA008D37D7 /* ContentProvider.swift */; };
+		F51CAFFC2AA22AE7003F9DDE /* EnterRoomCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51CAFFB2AA22AE7003F9DDE /* EnterRoomCodeViewController.swift */; };
+		F532D0C12A8F85200098A236 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F532D0C02A8F85200098A236 /* ProgressHUD */; };
 		F536F4C12A8EA2BB00378F47 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F536F4C02A8EA2BB00378F47 /* Kingfisher */; };
 		F53B47802A72F32B00772042 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F53B477F2A72F32B00772042 /* FirebaseAnalytics */; };
 		F53B47822A72F32B00772042 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = F53B47812A72F32B00772042 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -95,6 +97,7 @@
 		CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToRoomViewController.swift; sourceTree = "<group>"; };
 		F506F01A29C1DBF9006BF4C4 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		F50DE8122A8D00CA008D37D7 /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
+		F51CAFFB2AA22AE7003F9DDE /* EnterRoomCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterRoomCodeViewController.swift; sourceTree = "<group>"; };
 		F58852E229A68FC2009EF20E /* LocalStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageHelper.swift; sourceTree = "<group>"; };
 		F589C27A29C4E01D00A2E09B /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		F589C27C29C4E0C600A2E09B /* PlayWithPCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithPCViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 				F53B47942A72F32B00772042 /* FirebaseDatabaseSwift in Frameworks */,
 				F53B47962A72F32B00772042 /* FirebaseFirestore in Frameworks */,
 				F53B478A2A72F32B00772042 /* FirebaseAppDistribution-Beta in Frameworks */,
+				F532D0C12A8F85200098A236 /* ProgressHUD in Frameworks */,
 				F53B478E2A72F32B00772042 /* FirebaseAuthCombine-Community in Frameworks */,
 				F53B47842A72F32B00772042 /* FirebaseAnalyticsSwift in Frameworks */,
 				F53B479C2A72F32B00772042 /* FirebaseStorage in Frameworks */,
@@ -288,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB2C01D2789AE0600A3EB43 /* ConnectToRoomViewController.swift */,
+				F51CAFFB2AA22AE7003F9DDE /* EnterRoomCodeViewController.swift */,
 			);
 			path = ConnectToRoom;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				F53B479B2A72F32B00772042 /* FirebaseStorage */,
 				F53B479D2A72F32B00772042 /* FirebaseStorageCombine-Community */,
 				F536F4C02A8EA2BB00378F47 /* Kingfisher */,
+				F532D0C02A8F85200098A236 /* ProgressHUD */,
 			);
 			productName = AdvancedTTT;
 			productReference = 5C1F59392658D1A200041373 /* AdvancedTTT.app */;
@@ -377,6 +383,7 @@
 				F5852E3B2A72CF40002451DC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				F53B477E2A72F32B00772042 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F536F4BF2A8EA2BB00378F47 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F532D0BF2A8F85200098A236 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 5C1F593A2658D1A200041373 /* Products */;
 			projectDirPath = "";
@@ -410,6 +417,7 @@
 				CEB050AC27A7293B006D29FE /* TableViewExtensions.swift in Sources */,
 				5C1F59412658D1A200041373 /* GameViewController.swift in Sources */,
 				F589C28229C4FD4300A2E09B /* SinglePlayerViewModel.swift in Sources */,
+				F51CAFFC2AA22AE7003F9DDE /* EnterRoomCodeViewController.swift in Sources */,
 				CEB050AA27A728DE006D29FE /* AdvertsExtension.swift in Sources */,
 				CE14397F2753FBFE0014D068 /* BoardType.swift in Sources */,
 				CE749FA8278442BD004F3D75 /* HowToPlayViewModel.swift in Sources */,
@@ -648,6 +656,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F532D0BF2A8F85200098A236 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
 		F536F4BF2A8EA2BB00378F47 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -675,6 +691,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F532D0C02A8F85200098A236 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F532D0BF2A8F85200098A236 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
+		};
 		F536F4C02A8EA2BB00378F47 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F536F4BF2A8EA2BB00378F47 /* XCRemoteSwiftPackageReference "Kingfisher" */;

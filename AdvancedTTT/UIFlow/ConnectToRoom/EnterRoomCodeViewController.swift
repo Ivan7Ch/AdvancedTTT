@@ -1,28 +1,22 @@
 //
-//  ConnectToRoomViewController.swift
+//  EnterRoomCodeViewController.swift
 //  AdvancedTTT
 //
-//  Created by User on 08.01.2022.
+//  Created by Ivan Chernetskiy on 01.09.2023.
 //
 
 import UIKit
 
-class ConnectToRoomViewController: UIViewController {
+class EnterRoomCodeViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var connectToRoomButton: UIButton!
-    @IBOutlet weak var createNewRoomButton: UIButton!
     
     private let roomNumberLenght = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [textField, connectToRoomButton, createNewRoomButton].forEach({ view in
-            view?.layer.cornerRadius = Constants.generalCornerRadius
-        })
-        
-//        textField.delegate = self
+        textField.delegate = self
     }
     
     private func showMessage(number: String) {
@@ -42,17 +36,17 @@ class ConnectToRoomViewController: UIViewController {
     }
     
     func checkIfRoomExists(roomNumber: String, res: @escaping (Bool) -> Void) {
-//        ProgressHUD.show()
+        //TODO: show activity indicator
         FirebaseHelper(room: roomNumber).isRoomExists({ exists in
-//            ProgressHUD.dismiss()
+            //TODO: dismiss activity indicator
             res(exists)
         })
     }
     
     func getRoomNumber(res: @escaping (String?) -> Void) {
-//        ProgressHUD.show()
+        //TODO: show activity indicator
         FirebaseHelper().getHighestRoomNumber() { roomNumber in
-//            ProgressHUD.dismiss()
+            //TODO: dismiss activity indicator
             res(roomNumber)
         }
     }
@@ -60,41 +54,27 @@ class ConnectToRoomViewController: UIViewController {
 
 
 //TODO: - Actions
-extension ConnectToRoomViewController {
+extension EnterRoomCodeViewController {
     
     @IBAction func connectToRoomButtonAction() {
-//        textField.resignFirstResponder()
-////        ProgressHUD.show()
-//        if let text = textField.text, text.count == roomNumberLenght {
-//            checkIfRoomExists(roomNumber: text, res: { [weak self] exists in
-////                ProgressHUD.dismiss()
-//                if exists {
-//                    self?.showVC(with: .red, roomNumber: text)
-//                }
-//            })
-//        } else {
-////            ProgressHUD.dismiss()
-//        }
-    }
-    
-    @IBAction func createNewRoomButtonAction() {
-//        ProgressHUD.show()
-        getRoomNumber(res: { [weak self] roomNumber in
-//            ProgressHUD.dismiss()
-            var newNumberString = "000000"
-            if let roomNumber = roomNumber, let num = Int(roomNumber) {
-                newNumberString = String(format: "%06d", num + 1)
-            }
-            let data = RawGameData(field: "aaaaaaaaa", isBlueMove: true, roomNumber: newNumberString, bluePlayer: LocalStorageHelper.uniquePlayerID, redPlayer: nil, blueItems: GameFieldCoder.allBlueItems, redItems: GameFieldCoder.allRedItems)
-            FirebaseHelper(room: newNumberString).writeData(data: data)
-            self?.showMessage(number: newNumberString)
-        })
+        textField.resignFirstResponder()
+        //TODO: show activity indicator
+        if let text = textField.text, text.count == roomNumberLenght {
+            checkIfRoomExists(roomNumber: text, res: { [weak self] exists in
+                //TODO: dismiss activity indicator
+                if exists {
+                    self?.showVC(with: .red, roomNumber: text)
+                }
+            })
+        } else {
+            //TODO: dismiss activity indicator
+        }
     }
 }
 
 
 //TODO: - UITextFieldDelegate
-extension ConnectToRoomViewController: UITextFieldDelegate {
+extension EnterRoomCodeViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,

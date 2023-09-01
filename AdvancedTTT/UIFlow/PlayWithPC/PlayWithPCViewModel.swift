@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PlayWithPCViewModelDelegate: GameViewModelDelegate {
-    var playerBoardType: BoardType! { get set }
+    func showProgress(show: Bool)
 }
 
 class PlayWithPCViewModel: SinglePlayerViewModel {
@@ -25,8 +25,10 @@ class PlayWithPCViewModel: SinglePlayerViewModel {
                 delegate?.reloadViews()
                 check()
                 if !isFinishedGame {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                        self.makeMove()
+                    (delegate as! PlayWithPCViewModelDelegate).showProgress(show: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
+                        self?.makeMove()
+                        (self?.delegate as! PlayWithPCViewModelDelegate).showProgress(show: false)
                     })
                 }
             }

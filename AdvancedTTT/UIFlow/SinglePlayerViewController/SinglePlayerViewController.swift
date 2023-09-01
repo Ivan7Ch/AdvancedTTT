@@ -85,7 +85,7 @@ class SinglePlayerViewController: UIViewController, OnlineGameViewModelDelegate 
 //        setCollectionViewDisabled(blueCollectionView, isDisabled: boardType == .blue)
     }
     
-    private func setCollectionViewDisabled(_ collectionView: UICollectionView, isDisabled: Bool) {
+    func setCollectionViewDisabled(_ collectionView: UICollectionView, isDisabled: Bool) {
         collectionView.isUserInteractionEnabled = !isDisabled
         UIView.animate(withDuration: 0.15, animations: {
             collectionView.alpha = isDisabled ? 0.3 : 1

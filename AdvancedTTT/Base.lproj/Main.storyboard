@@ -123,41 +123,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TML-N8-x43">
-                                <rect key="frame" x="15" y="226" width="384" height="210"/>
+                                <rect key="frame" x="15" y="286" width="384" height="150"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-wF-nvD">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="210"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="150"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3vu-WS-rsU">
-                                                <rect key="frame" x="0.0" y="0.0" width="384" height="60"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABp-ZT-clL">
-                                                <rect key="frame" x="0.0" y="75" width="384" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="67.666666666666671"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                                <state key="normal" title="Create new Room">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="+ Create a new room">
+                                                    <color key="titleColor" systemColor="systemMintColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="createNewRoomButtonAction" destination="F9l-cr-OGy" eventType="touchUpInside" id="7ob-8T-jN0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COs-7g-1Rr">
-                                                <rect key="frame" x="0.0" y="150" width="384" height="60"/>
+                                                <rect key="frame" x="0.0" y="82.666666666666686" width="384" height="67.333333333333314"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
-                                                <state key="normal" title="Connect to Room">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Join with a room code">
+                                                    <color key="titleColor" systemColor="systemOrangeColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="connectToRoomButtonAction" destination="F9l-cr-OGy" eventType="touchUpInside" id="S4I-Aa-N7m"/>
+                                                    <segue destination="4Rz-2L-RrZ" kind="show" id="ifa-18-rJC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="210" id="czL-mx-Mix"/>
+                                            <constraint firstAttribute="height" constant="150" id="czL-mx-Mix"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -182,12 +178,63 @@
                     <connections>
                         <outlet property="connectToRoomButton" destination="COs-7g-1Rr" id="PFG-lN-ETE"/>
                         <outlet property="createNewRoomButton" destination="ABp-ZT-clL" id="YhN-1U-CBB"/>
-                        <outlet property="textField" destination="3vu-WS-rsU" id="iZd-6F-GOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bds-ku-cGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776.8115942028987" y="164.67391304347828"/>
+        </scene>
+        <!--Enter Room Code View Controller-->
+        <scene sceneID="sOW-Iq-9OK">
+            <objects>
+                <viewController id="4Rz-2L-RrZ" customClass="EnterRoomCodeViewController" customModule="AdvancedTTT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MaU-vd-qkY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EEU-wu-wJG">
+                                <rect key="frame" x="40" y="94" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bif-Os-fd2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-b4-L0m">
+                                <rect key="frame" x="15" y="162" width="384" height="67"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="NdK-vF-QnR"/>
+                                    <constraint firstAttribute="width" constant="384" id="fqo-J6-M0M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectToRoomButtonAction" destination="4Rz-2L-RrZ" eventType="touchUpInside" id="HUb-7F-6Up"/>
+                                    <action selector="connectToRoomButtonAction" destination="F9l-cr-OGy" eventType="touchUpInside" id="z8d-xv-1ya"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3bu-KL-5s5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ges-b4-L0m" firstAttribute="top" secondItem="EEU-wu-wJG" secondAttribute="bottom" constant="18" id="7Ct-Vb-C9y"/>
+                            <constraint firstItem="Ges-b4-L0m" firstAttribute="centerX" secondItem="MaU-vd-qkY" secondAttribute="centerX" id="9cm-Sh-bhL"/>
+                            <constraint firstItem="EEU-wu-wJG" firstAttribute="leading" secondItem="3bu-KL-5s5" secondAttribute="leading" constant="40" id="L1y-vF-JdK"/>
+                            <constraint firstItem="3bu-KL-5s5" firstAttribute="trailing" secondItem="EEU-wu-wJG" secondAttribute="trailing" constant="40" id="PBw-hV-Afc"/>
+                            <constraint firstItem="EEU-wu-wJG" firstAttribute="top" secondItem="3bu-KL-5s5" secondAttribute="top" constant="30" id="bCO-1R-0a4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Rij-yw-74a"/>
+                    <connections>
+                        <outlet property="textField" destination="EEU-wu-wJG" id="R90-zt-iKu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLD-cS-gnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2478" y="165"/>
         </scene>
         <!--Play Online View Controller-->
         <scene sceneID="b5j-Ft-Ups">
@@ -361,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8I-Ql-zOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="151"/>
+            <point key="canvasLocation" x="3191" y="165"/>
         </scene>
         <!--Advanced TicTacToe-->
         <scene sceneID="tne-QT-ifu">
@@ -1202,6 +1249,12 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
