@@ -382,6 +382,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="o6a-1a-4PV">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="l4H-Fu-hLv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cgs-iJ-VwT">
+                                <rect key="frame" x="20" y="5" width="92" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonAction" destination="EIZ-Oz-6At" eventType="touchUpInside" id="hOr-PQ-Jiy"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="8RP-Fm-eUR">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="NHG-oS-IwV">
                                 <rect key="frame" x="340" y="0.0" width="54" height="44"/>
