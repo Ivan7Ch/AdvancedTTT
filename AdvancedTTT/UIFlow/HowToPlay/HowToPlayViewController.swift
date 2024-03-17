@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HowToPlayViewController: BaseBackgroundViewController {
+class HowToPlayViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     

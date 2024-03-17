@@ -49,12 +49,12 @@ class FirebaseHelper {
     
     func writeData(data: RawGameData) {
         ref?.setData(["f" : data.field,
-                         "b" : data.isBlueMove,
-                         "n" : data.roomNumber,
-                         "bp" : data.bluePlayer ?? "",
-                         "rp" : data.redPlayer ?? "",
-                         "bi" : data.blueItems ?? "",
-                         "ri" : data.redItems ?? ""])
+                      "b" : data.isBlueMove,
+                      "n" : data.roomNumber,
+                      "bp" : data.bluePlayer ?? "",
+                      "rp" : data.redPlayer ?? "",
+                      "bi" : data.blueItems ?? "",
+                      "ri" : data.redItems ?? ""])
     }
     
     func updateData(data: RawGameData) {
@@ -93,5 +93,22 @@ class FirebaseHelper {
                 completion(nil)
             }
         })
+    }
+    
+    func getContentURL(for contentType: ContentType, _ completion: @escaping ((String?) -> Void)) {
+        let contentCollection = database.collection("content")
+        
+        contentCollection.document(contentType.rawValue).getDocument { documentSnapshot, error in
+            guard let document = documentSnapshot, let data = document.data() else {
+                completion(nil)
+                return
+            }
+            
+            if let contentURL = data["url"] as? String {
+                completion(contentURL)
+            } else {
+                completion(nil)
+            }
+        }
     }
 }

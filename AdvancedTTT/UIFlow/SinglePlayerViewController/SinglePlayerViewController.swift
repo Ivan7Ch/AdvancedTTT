@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
-class SinglePlayerViewController: BaseBackgroundViewController, OnlineGameViewModelDelegate {
+class SinglePlayerViewController: UIViewController, OnlineGameViewModelDelegate {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var blueCollectionView: UICollectionView!
@@ -85,7 +85,7 @@ class SinglePlayerViewController: BaseBackgroundViewController, OnlineGameViewMo
 //        setCollectionViewDisabled(blueCollectionView, isDisabled: boardType == .blue)
     }
     
-    private func setCollectionViewDisabled(_ collectionView: UICollectionView, isDisabled: Bool) {
+    func setCollectionViewDisabled(_ collectionView: UICollectionView, isDisabled: Bool) {
         collectionView.isUserInteractionEnabled = !isDisabled
         UIView.animate(withDuration: 0.15, animations: {
             collectionView.alpha = isDisabled ? 0.3 : 1
